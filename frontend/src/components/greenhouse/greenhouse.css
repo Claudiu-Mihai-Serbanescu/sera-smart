@@ -1,0 +1,893 @@
+/* =========================================================
+   Greenhouse UI – arranged & deduplicated
+   NOTE: No visual changes intended. Kept final cascade values.
+   - Standardized fallbacks (e.g., var(--line, #e5e7eb)) where present
+   - Removed overridden/duplicate blocks; preserved latest effective rules
+   - Grouped logically by feature; media queries consolidated
+   ========================================================= */
+
+/* ===================== TOKENS / ROOT ===================== */
+.gh-page {
+  --gap: 16px;
+  --radius: 12px;
+  --bg: #e8e8e8;
+  --card: #fff;
+  --line: #e5e7eb;
+  --ink: #111827;
+  --muted: #6b7280;
+  --brand: #111827;
+  --primary: #10b981;
+  --danger: #ef4444;
+  --focus: #93c5fd;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* ===================== LAYOUT: TWO COLUMNS ===================== */
+.gh-two {
+  display: grid;
+  gap: 16px;
+  padding: 0;
+  grid-template-columns: clamp(440px, 38vw, 620px) 1fr;
+}
+.gh-col {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===================== CARD ===================== */
+.card {
+  background: var(--card, #fff);
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: var(--radius, 12px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 8px 20px rgba(2, 6, 23, 0.06);
+}
+
+/* ===================== HEADER ===================== */
+.gh-header {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.gh-header h1 {
+  margin: 0;
+  font: 800 1.05rem/1 ui-sans-serif, system-ui;
+}
+.gh-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.gh-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  background: var(--brand);
+  color: #fff;
+}
+
+/* Left card container tweaks */
+.gh-left-card {
+  padding: 12px;
+}
+.gh-left-card .gh-header {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0 0 10px 0;
+  margin: 0 0 12px 0;
+  border-bottom: 1px dashed var(--line, #e5e7eb);
+}
+.gh-left-card .gh-props {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* ===================== BUTTONS ===================== */
+.btn {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid var(--line, #e5e7eb);
+  background: #fff;
+  color: var(--ink, #111827);
+}
+.btn:hover {
+  background: #f8fafc;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-success {
+  background: var(--primary, #10b981);
+  border-color: var(--primary, #10b981);
+  color: #fff;
+}
+/* button spacing */
+.btn + .btn {
+  margin-left: 8px;
+}
+.gh-header-actions > .btn {
+  margin-left: 8px;
+}
+
+/* ===================== DROPDOWN (CONDENSED) ===================== */
+.dd-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 48vw;
+}
+.dd-current {
+  display: inline-block;
+  max-width: 38vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dd-menu {
+  position: absolute;
+  right: 0;
+  top: 42px;
+  z-index: 60;
+  min-width: 280px;
+  max-width: min(92vw, 360px);
+}
+.dd-list {
+  max-height: 340px;
+  overflow: auto;
+  padding: 8px;
+  border-radius: 12px;
+}
+.dd-item {
+  display: grid;
+  grid-template-columns: 1fr 28px;
+  gap: 8px;
+  align-items: center;
+}
+.dd-del {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid #fecaca;
+  background: #fee2e2;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* ===================== PROPERTIES ===================== */
+.gh-props {
+  padding: 12px;
+}
+.gh-props label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.83rem;
+  color: #374151;
+}
+.gh-props input,
+.gh-props select {
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  margin-bottom: 8px;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 10px;
+  background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  font-size: 16px; /* prevent mobile zoom on focus */
+}
+.gh-props input:focus,
+.gh-props select:focus {
+  outline: none;
+  border-color: var(--focus, #93c5fd);
+  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.35);
+}
+.gh-props .row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* ===================== USAGE BAR ===================== */
+.usage {
+  background: #f8fafc;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 12px;
+  padding: 0.6rem 0.75rem;
+  margin: 0.5rem 0 0.8rem;
+}
+.usage .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.92rem;
+  align-items: center;
+}
+.usage .bar {
+  height: 10px;
+  margin-top: 0.4rem;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.usage .bar > div {
+  height: 100%;
+  background: var(--primary, #10b981);
+}
+.usage.bad .bar > div {
+  background: var(--danger, #ef4444);
+}
+
+/* ===================== SPLIT HEADER ===================== */
+.split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.25rem 0 0.5rem;
+}
+.split h4 {
+  margin: 0;
+  font: 800 1rem/1 ui-sans-serif, system-ui;
+}
+.split > button {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-weight: 800;
+  background: var(--primary, #10b981);
+  color: #fff;
+  border: 1px solid var(--primary, #10b981);
+}
+
+/* ===================== BEDS (FORM + CARDS) ===================== */
+.beds {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Visual card for each bed */
+.bed-card {
+  background: #f8fafc;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  padding: 0.6rem;
+}
+.bed-subtitle {
+  grid-area: subtitle;
+  font: 800 0.92rem/1 ui-sans-serif, system-ui;
+  color: #111827;
+  margin: 0.1rem 0 0.2rem;
+}
+/* hide accidental duplicate subtitles if any */
+.bed-card > .bed-subtitle + .bed-subtitle {
+  display: none;
+}
+
+/* Final layout (grid-areas) */
+.bed-row {
+  display: grid;
+  gap: 0.5rem;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "subtitle subtitle"
+    "name name"
+    "crop crop"
+    "size path"
+    "plant harvest"
+    "days days"
+    "area del";
+}
+
+/* area mapping */
+.bed-name {
+  grid-area: name;
+}
+.bed-crop {
+  grid-area: crop;
+}
+.bed-size {
+  grid-area: size;
+}
+.bed-path {
+  grid-area: path;
+}
+.bed-plant {
+  grid-area: plant;
+}
+.bed-harvest {
+  grid-area: harvest;
+}
+.bed-days {
+  grid-area: days;
+}
+.bed-area {
+  grid-area: area;
+}
+.bed-row .del {
+  grid-area: del;
+  justify-self: end;
+}
+
+/* grouped controls with unit badge */
+.bed-size,
+.bed-path,
+.bed-days {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.bed-size span,
+.bed-path span,
+.bed-harvest span,
+.bed-days span {
+  height: 28px;
+  min-width: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--line, #e5e7eb);
+  background: #f1f5f9;
+  color: #6b7280;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+/* readonly fields */
+.bed-harvest input[readonly] {
+  background: #fff;
+  color: #111827;
+  cursor: default;
+}
+
+/* m² visual field */
+.bed-area {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  height: 38px;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 10px;
+  background: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+/* delete button */
+.bed-row .del {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid #fecaca;
+  background: #fee2e2;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* ===================== CANVAS + LEGEND ===================== */
+.gh-editor {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* canvas card wrapper */
+.gh-canvas-card {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gh-canvas-wrap {
+  position: relative;
+  border: 1px dashed #e5e7eb;
+  border-radius: 0px; /* final effective */
+  background: #fff;
+  overflow: hidden;
+  max-height: 540px;
+  min-height: 120px;
+}
+.gh-canvas-wrap.is-overflow .frame {
+  stroke: var(--danger, #ef4444);
+  stroke-width: 3;
+}
+
+/* legend separated from canvas */
+.gh-canvas-card .gh-legend {
+  padding-top: 10px;
+  margin-top: 2px;
+  border-top: 1px dashed var(--line, #e5e7eb);
+}
+
+/* svg / canvas internals */
+.gh-canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: grab;
+}
+.gh-canvas.is-grabbing {
+  cursor: grabbing;
+}
+.frame {
+  fill: #fff;
+  stroke: #cbd5e1;
+  stroke-width: 2;
+}
+.ruler-line {
+  stroke: #d1d5db;
+  stroke-width: 1;
+  opacity: 0.6;
+}
+.ruler-text {
+  font: 600 10px/1 ui-sans-serif, system-ui;
+  fill: #9ca3af;
+}
+.bed {
+  opacity: 0.95;
+  stroke: rgba(255, 255, 255, 0.7);
+  stroke-width: 1;
+}
+.bed-crop {
+  font: 800 16px/1.1 ui-sans-serif, system-ui;
+  fill: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.bed-name {
+  font: 700 12px/1 ui-sans-serif, system-ui;
+  fill: #fff;
+  opacity: 0.95;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.sensor-dot {
+  fill: #111827;
+  stroke: #fff;
+  stroke-width: 3;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+  cursor: grab;
+}
+.sensor-label {
+  font: 700 12px/1 ui-sans-serif, system-ui;
+  fill: #111827;
+  paint-order: stroke;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-opacity: 0.9;
+}
+
+/* Legend – editable chips */
+.gh-legend {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0.25rem 0;
+}
+.legend-edit-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #f8fafc;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 999px;
+  padding: 0.25rem 0.4rem;
+}
+.legend-edit-item .color-input {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+}
+.legend-edit-item .name-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 120px;
+  font-weight: 700;
+}
+.legend-edit-item .del {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid #fecaca;
+  background: #fee2e2;
+  font-weight: 900;
+  cursor: pointer;
+}
+.legend-add {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px dashed #c7d2fe;
+  background: #f8fafc;
+}
+
+.statsSelect {
+  height: var(--tab-h);
+  min-width: clamp(130px, 32vw, 200px);
+  padding: 0 calc(var(--tab-pad-x) + 10px) 0 var(--tab-pad-x);
+  border-radius: var(--tab-radius);
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-weight: 600;
+  appearance: none;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+.statsSelect:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25), var(--shadow-sm);
+  border-color: #93c5fd;
+}
+
+.tabPill {
+  --accent: #3b82f6;
+  height: var(--tab-h);
+  padding: 0 var(--tab-pad-x);
+  border-radius: var(--tab-radius);
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.tabPill:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.tabPill:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent), var(--shadow-sm);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+.sensorsTab {
+  --accent: #16a34a;
+}
+.accuTab {
+  --accent: #7c3aed;
+}
+.tabPill.active {
+  border-color: color-mix(in srgb, var(--accent) 55%, #cbd5e1);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 18%, transparent), var(--shadow-md);
+}
+
+.tabPanel {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 10px; /* as requested */
+  box-shadow: var(--shadow-sm);
+  min-height: 120px;
+}
+.tabPanel--sensors {
+  border-color: color-mix(in srgb, #16a34a 20%, var(--border));
+}
+.tabPanel--accu {
+  border-color: color-mix(in srgb, #7c3aed 20%, var(--border));
+}
+.statsError {
+  background: #fff1f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.accuPlaceholder {
+  display: grid;
+  gap: 8px;
+}
+.accuBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #f8fafc;
+}
+.tabPanel--autos {
+  padding-bottom: 0 !important;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .gh-two {
+    grid-template-columns: 1fr;
+  }
+  .gh-canvas-wrap {
+    max-height: 460px;
+  }
+}
+@media (max-width: 768px) {
+  .gh-props .row-2 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .dd-trigger {
+    max-width: 100%;
+  }
+  .gh-page {
+    padding: 30px 5px 40px 5px;
+  }
+  /* Mobile: keep the same clear rows mapping */
+  .bed-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "subtitle subtitle"
+      "name name"
+      "crop crop"
+      "size path"
+      "plant harvest"
+      "days days"
+      "area del";
+  }
+}
+
+/* hide native marker */
+.bed-acc__head::-webkit-details-marker {
+  display: none;
+}
+.bed-acc__title {
+  font: 800 0.95rem/1 ui-sans-serif, system-ui;
+  color: #111827;
+}
+.bed-acc__meta {
+  color: var(--muted, #6b7280);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.bed-acc__caret {
+  margin-left: auto;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #9ca3af;
+  border-bottom: 2px solid #9ca3af;
+  transform: rotate(-45deg);
+  transition: transform 0.18s ease;
+}
+
+.bed-acc[open] .bed-acc__caret {
+  transform: rotate(45deg);
+}
+
+/* ===================== Beds: Grid with label rows ===================== */
+.bed-row {
+  display: grid;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.6rem;
+  /* Mobile-first: name/crop stacked */
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "subtitle subtitle"
+    "labels-nc labels-nc"
+    "name name"
+    "crop crop"
+    "size path"
+    "labels-ph labels-ph"
+    "plant harvest"
+    "label-days label-days"
+    "days days"
+    "area del";
+}
+
+/* md+ — put Name & Crop on the same row */
+@media (min-width: 768px) {
+  .bed-row {
+    grid-template-areas:
+      "subtitle subtitle"
+      "labels-nc labels-nc"
+      "name crop"
+      "size path"
+      "labels-ph labels-ph"
+      "plant harvest"
+      "label-days label-days"
+      "days days"
+      "area del";
+  }
+}
+
+/* area hooks */
+.bed-subtitle {
+  grid-area: subtitle;
+}
+.bed-name {
+  grid-area: name;
+}
+.bed-crop {
+  grid-area: crop;
+}
+.bed-size {
+  grid-area: size;
+}
+.bed-path {
+  grid-area: path;
+}
+.bed-plant {
+  grid-area: plant;
+}
+.bed-harvest {
+  grid-area: harvest;
+}
+.bed-days {
+  grid-area: days;
+}
+.bed-area {
+  grid-area: area;
+}
+.bed-row .del {
+  grid-area: del;
+  justify-self: end;
+}
+
+/* label rows */
+.bed-labels {
+  color: var(--muted, #6b7280);
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+}
+.bed-labels.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.bed-labels.one {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.bed-labels-nc {
+  grid-area: labels-nc;
+}
+.bed-labels-ph {
+  grid-area: labels-ph;
+}
+.bed-label-days {
+  grid-area: label-days;
+}
+.bed-acc {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 8px 20px rgba(2, 6, 23, 0.06);
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+.bed-acc > summary.bed-acc__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+/* mapări arii */
+.bed-name {
+  grid-area: name;
+}
+.bed-crop {
+  grid-area: crop;
+}
+.bed-size {
+  grid-area: size;
+}
+.bed-path {
+  grid-area: path;
+}
+.bed-plant {
+  grid-area: plant;
+}
+.bed-harvest {
+  grid-area: harvest;
+}
+.bed-days {
+  grid-area: days;
+}
+.bed-area {
+  grid-area: area;
+}
+.bed-row .del {
+  grid-area: del;
+  justify-self: end;
+}
+
+.bed-labels {
+  color: var(--muted, #6b7280);
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+.bed-labels.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.bed-labels.one {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.bed-labels-nc {
+  grid-area: labels-nc;
+}
+.bed-labels-ph {
+  grid-area: labels-ph;
+}
+/* === Fix in-field labels vs unit badges === */
+
+/* eticheta din câmp – poziționată sus-stânga, fără border/background de „pastilă” */
+.bed-size .infield__label,
+.bed-path .infield__label,
+.infield--area .infield__label {
+  position: absolute;
+  left: 12px;
+  top: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted, #6b7280);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  height: auto;
+  min-width: 0;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+/* inputurile din „infield” primesc mai mult padding sus ca să lase loc etichetei */
+.infield {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.infield input {
+  box-sizing: border-box;
+  height: 44px;
+  padding: 18px 12px 0 12px; /* spațiu pentru etichetă */
+}
+
+/* stilul pentru badge-ul de unitate „m” — doar pe .unit, ca să nu afecteze eticheta */
+.bed-size .unit,
+.bed-path .unit {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  min-width: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--line, #e5e7eb);
+  background: #f1f5f9;
+  color: #6b7280;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.gh-canvas-card .gh-legend {
+  padding-top: 6px;
+  margin-top: 0;
+  border-top: none;
+}

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autentificare - ByteStorm Sere</title>
+    <meta name="description" content="Conectează-te la platforma ByteStorm Sere pentru monitorizarea și automatizarea serelor tale." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      type="module"
+      src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fbytestorm2668back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+  </head>
+  <body class="bg-surface min-h-screen">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-100">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="homepage.html" class="flex items-center">
+              <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M16 2L8 8v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V8l-8-6z" />
+                <circle cx="16" cy="14" r="3" fill="white" />
+                <path d="M12 20h8v2h-8z" fill="white" />
+              </svg>
+              <div class="ml-3">
+                <h1 class="text-xl font-bold text-primary">ByteStorm</h1>
+                <p class="text-xs text-secondary -mt-1">Sere</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="homepage.html" class="text-gray-600 hover:text-primary transition-colors">Acasă</a>
+            <a href="features.html" class="text-gray-600 hover:text-primary transition-colors">Caracteristici</a>
+            <a href="how_it_works.html" class="text-gray-600 hover:text-primary transition-colors">Cum funcționează</a>
+            <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors">Prețuri</a>
+            <a href="contact.html" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button type="button" class="text-gray-600 hover:text-primary" onclick="toggleMobileMenu()">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden">
+          <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100">
+            <a href="homepage.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Acasă</a>
+            <a href="features.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Caracteristici</a>
+            <a href="how_it_works.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Cum funcționează</a>
+            <a href="pricing.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Prețuri</a>
+            <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Contact</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex">
+      <!-- Left Panel - Dashboard Showcase -->
+      <div class="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary to-secondary relative overflow-hidden">
+        <div class="absolute inset-0 agricultural-pattern opacity-20"></div>
+
+        <!-- Content Container -->
+        <div class="relative z-10 flex flex-col justify-center px-12 py-16">
+          <div class="mb-8">
+            <h2 class="text-3xl font-bold text-white mb-4">Bun venit înapoi la ByteStorm Sere</h2>
+            <p class="text-primary-100 text-lg leading-relaxed">
+              Monitorizează și automatizează serele tale cu tehnologia IoT de ultimă generație. Peste 500 de fermieri români au ales să crească inteligent.
+            </p>
+          </div>
+
+          <!-- Dashboard Preview Carousel -->
+          <div class="relative">
+            <div id="dashboard-carousel" class="bg-white rounded-xl shadow-xl p-6 border border-gray-100">
+              <!-- Dashboard Screenshot 1 - Monitoring -->
+              <div class="dashboard-slide active">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-lg font-semibold text-primary">Monitorizare în Timp Real</h3>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                    <span class="text-sm text-gray-500">Online</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="bg-primary-50 rounded-lg p-4">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <p class="text-sm text-gray-600">Temperatură</p>
+                        <p class="text-2xl font-bold text-primary">24.5°C</p>
+                        <p class="text-xs text-success">+0.3°C față de ieri</p>
+                      </div>
+                      <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="bg-secondary-50 rounded-lg p-4">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <p class="text-sm text-gray-600">Umiditate</p>
+                        <p class="text-2xl font-bold text-secondary">68%</p>
+                        <p class="text-xs text-success">Optim pentru roșii</p>
+                      </div>
+                      <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2s-6 6-6 10a6 6 0 1012 0c0-4-6-10-6-10z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="bg-gray-50 rounded-lg p-4 h-24">
+                  <svg class="w-full h-full" viewBox="0 0 300 60">
+                    <polyline fill="none" stroke="#16A34A" stroke-width="2" points="0,50 50,35 100,40 150,25 200,30 250,20 300,22" />
+                    <circle cx="300" cy="22" r="2" fill="#16A34A" />
+                    <text x="10" y="15" class="text-xs fill-gray-500">Temperatură ultimele 24h</text>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Dashboard Screenshot 2 - Automation -->
+              <div class="dashboard-slide hidden">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-lg font-semibold text-primary">Automatizare Activă</h3>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                    <span class="text-sm text-gray-500">Programat</span>
+                  </div>
+                </div>
+
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between p-3 bg-success-50 rounded-lg">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 bg-success rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 2s-6 6-6 10a6 6 0 1012 0c0-4-6-10-6-10z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="font-medium text-gray-900">Irigație Sera 1</p>
+                        <p class="text-sm text-gray-500">Activ - 15 min rămase</p>
+                      </div>
+                    </div>
+                    <span class="text-success font-semibold">ON</span>
+                  </div>
+
+                  <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="font-medium text-gray-900">Ventilație</p>
+                        <p class="text-sm text-gray-500">Programat pentru 18:00</p>
+                      </div>
+                    </div>
+                    <span class="text-gray-500 font-semibold">OFF</span>
+                  </div>
+
+                  <div class="flex items-center justify-between p-3 bg-accent-50 rounded-lg">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.477.859h4z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="font-medium text-gray-900">Iluminat LED</p>
+                        <p class="text-sm text-gray-500">Intensitate 75%</p>
+                      </div>
+                    </div>
+                    <span class="text-accent-600 font-semibold">AUTO</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dashboard Screenshot 3 - Analytics -->
+              <div class="dashboard-slide hidden">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-lg font-semibold text-primary">Analiză Producție</h3>
+                  <div class="text-sm text-gray-500">Septembrie 2025</div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 mb-4">
+                  <div class="text-center p-3 bg-primary-50 rounded-lg">
+                    <p class="text-2xl font-bold text-primary">2.8t</p>
+                    <p class="text-xs text-gray-600">Recoltă luna aceasta</p>
+                  </div>
+                  <div class="text-center p-3 bg-secondary-50 rounded-lg">
+                    <p class="text-2xl font-bold text-secondary">+15%</p>
+                    <p class="text-xs text-gray-600">vs. luna trecută</p>
+                  </div>
+                  <div class="text-center p-3 bg-accent-50 rounded-lg">
+                    <p class="text-2xl font-bold text-accent-600">98%</p>
+                    <p class="text-xs text-gray-600">Calitate premium</p>
+                  </div>
+                </div>
+
+                <!-- Yield Chart -->
+                <div class="bg-gray-50 rounded-lg p-4 h-24">
+                  <svg class="w-full h-full" viewBox="0 0 300 60">
+                    <rect x="20" y="40" width="15" height="15" fill="#16A34A" opacity="0.7" />
+                    <rect x="45" y="35" width="15" height="20" fill="#16A34A" opacity="0.8" />
+                    <rect x="70" y="25" width="15" height="30" fill="#16A34A" />
+                    <rect x="95" y="30" width="15" height="25" fill="#16A34A" opacity="0.9" />
+                    <rect x="120" y="20" width="15" height="35" fill="#16A34A" />
+                    <text x="10" y="15" class="text-xs fill-gray-500">Producție săptămânală (kg)</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carousel Indicators -->
+            <div class="flex justify-center mt-6 space-x-2">
+              <button class="carousel-dot active w-2 h-2 bg-white rounded-full opacity-50" onclick="showSlide(0)"></button>
+              <button class="carousel-dot w-2 h-2 bg-white rounded-full opacity-30" onclick="showSlide(1)"></button>
+              <button class="carousel-dot w-2 h-2 bg-white rounded-full opacity-30" onclick="showSlide(2)"></button>
+            </div>
+          </div>
+
+          <!-- Features List -->
+          <div class="mt-8 space-y-3">
+            <div class="flex items-center text-primary-100">
+              <svg class="w-5 h-5 mr-3 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Monitorizare IoT în timp real</span>
+            </div>
+            <div class="flex items-center text-primary-100">
+              <svg class="w-5 h-5 mr-3 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Automatizare inteligentă</span>
+            </div>
+            <div class="flex items-center text-primary-100">
+              <svg class="w-5 h-5 mr-3 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Analize și rapoarte detaliate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel - Login Form -->
+      <div class="w-full lg:w-1/2 flex flex-col justify-center px-6 py-12 lg:px-12">
+        <div class="mx-auto w-full max-w-md">
+          <!-- Login Header -->
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-primary mb-2">Conectează-te</h2>
+            <p class="text-gray-600">Accesează dashboard-ul tău ByteStorm Sere</p>
+          </div>
+
+          <!-- Login Form -->
+          <form id="loginForm" class="space-y-6" onsubmit="handleLogin(event)">
+            <!-- Email Field -->
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Adresa de email</label>
+              <input type="email" id="email" name="email" required class="input-field" placeholder="nume@exemplu.ro" autocomplete="email" />
+            </div>
+
+            <!-- Password Field -->
+            <div>
+              <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Parola</label>
+              <div class="relative">
+                <input type="password" id="password" name="password" required class="input-field pr-10" placeholder="Introdu parola" autocomplete="current-password" />
+                <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" onclick="togglePassword()">
+                  <svg id="eye-icon" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Remember Me & Forgot Password -->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-primary focus:ring-secondary border-gray-300 rounded" />
+                <label for="remember-me" class="ml-2 block text-sm text-gray-700">Ține-mă conectat</label>
+              </div>
+
+              <div class="text-sm">
+                <a href="javascript:void(0)" onclick="showPasswordReset()" class="text-secondary hover:text-secondary-700 font-medium">Ai uitat parola?</a>
+              </div>
+            </div>
+
+            <!-- Login Button -->
+            <div>
+              <button type="submit" class="w-full btn-primary shadow-cta">Conectează-te</button>
+            </div>
+
+            <!-- Demo Credentials -->
+            <div class="mt-4 p-4 bg-surface rounded-lg border border-gray-200">
+              <p class="text-sm font-medium text-gray-700 mb-2">Conturi demo disponibile:</p>
+              <div class="space-y-1 text-xs text-gray-600">
+                <p>
+                  <strong>Admin:</strong>
+                  admin@bytestorm.ro / admin123
+                </p>
+                <p>
+                  <strong>Fermier:</strong>
+                  fermier@test.ro / fermier123
+                </p>
+                <p>
+                  <strong>Demo:</strong>
+                  demo@demo.ro / demo123
+                </p>
+              </div>
+            </div>
+          </form>
+
+          <!-- Divider -->
+          <div class="mt-8">
+            <div class="relative">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex justify-center text-sm">
+                <span class="px-2 bg-white text-gray-500">Sau</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sign Up Section -->
+          <div class="mt-8 text-center">
+            <div class="bg-primary-50 rounded-lg p-6 border border-primary-100">
+              <h3 class="text-lg font-semibold text-primary mb-2">Nu ai cont încă?</h3>
+              <p class="text-gray-600 mb-4">Începe perioada gratuită de 30 de zile, fără card necesar</p>
+              <a href="pricing.html" class="btn-secondary w-full inline-block text-center">Începe perioada gratuită</a>
+
+              <!-- Benefits -->
+              <div class="mt-4 space-y-2 text-sm text-gray-600">
+                <div class="flex items-center justify-center">
+                  <svg class="w-4 h-4 mr-2 text-success" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>30 zile gratuit, fără card necesar</span>
+                </div>
+                <div class="flex items-center justify-center">
+                  <svg class="w-4 h-4 mr-2 text-success" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Suport tehnic inclus</span>
+                </div>
+                <div class="flex items-center justify-center">
+                  <svg class="w-4 h-4 mr-2 text-success" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Configurare gratuită</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security Badges -->
+          <div class="mt-8">
+            <div class="flex justify-center items-center space-x-6 text-center">
+              <div class="flex flex-col items-center">
+                <div class="w-8 h-8 bg-success-100 rounded-full flex items-center justify-center mb-1">
+                  <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray-600">SSL Securizat</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mb-1">
+                  <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray-600">GDPR Compliant</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="w-8 h-8 bg-accent-100 rounded-full flex items-center justify-center mb-1">
+                  <svg class="w-4 h-4 text-accent-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray-600">Date Protejate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center space-x-6 mb-4 md:mb-0">
+            <a href="contact.html" class="text-sm text-gray-600 hover:text-primary">Suport tehnic</a>
+            <a href="javascript:void(0)" class="text-sm text-gray-600 hover:text-primary">Documentație</a>
+            <a href="javascript:void(0)" class="text-sm text-gray-600 hover:text-primary">Politica de confidențialitate</a>
+          </div>
+          <div class="text-sm text-gray-500">© 2025 ByteStorm Sere. Toate drepturile rezervate.</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Password Reset Modal -->
+    <div id="passwordResetModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+      <div class="bg-white rounded-lg max-w-md w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-lg font-semibold text-primary">Resetare parolă</h3>
+          <button onclick="hidePasswordReset()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <form onsubmit="handlePasswordReset(event)">
+          <div class="mb-4">
+            <label for="reset-email" class="block text-sm font-medium text-gray-700 mb-2">Adresa de email</label>
+            <input type="email" id="reset-email" required class="input-field" placeholder="nume@exemplu.ro" />
+          </div>
+
+          <div class="mb-4">
+            <label class="flex items-center">
+              <input type="checkbox" class="h-4 w-4 text-primary focus:ring-secondary border-gray-300 rounded" />
+              <span class="ml-2 text-sm text-gray-600">Trimite și SMS (pentru zone rurale)</span>
+            </label>
+          </div>
+
+          <div class="flex space-x-3">
+            <button type="button" onclick="hidePasswordReset()" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">Anulează</button>
+            <button type="submit" class="flex-1 btn-primary">Trimite link</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+      }
+
+      // Password visibility toggle
+      function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const eyeIcon = document.getElementById("eye-icon");
+
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          eyeIcon.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"/>
+                `;
+        } else {
+          passwordInput.type = "password";
+          eyeIcon.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                `;
+        }
+      }
+
+      // Dashboard carousel
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".dashboard-slide");
+      const dots = document.querySelectorAll(".carousel-dot");
+
+      function showSlide(index) {
+        // Hide all slides
+        slides.forEach((slide) => slide.classList.add("hidden"));
+        dots.forEach((dot) => {
+          dot.classList.remove("active", "opacity-50");
+          dot.classList.add("opacity-30");
+        });
+
+        // Show current slide
+        slides[index].classList.remove("hidden");
+        dots[index].classList.remove("opacity-30");
+        dots[index].classList.add("active", "opacity-50");
+
+        currentSlide = index;
+      }
+
+      // Auto-rotate carousel
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      // Start carousel rotation
+      setInterval(nextSlide, 5000);
+
+      // Login form handling
+      function handleLogin(event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        const validCredentials = [
+          { email: "admin@bytestorm.ro", password: "admin123" },
+          { email: "fermier@test.ro", password: "fermier123" },
+          { email: "demo@demo.ro", password: "demo123" },
+        ];
+
+        const isValid = validCredentials.some((cred) => cred.email === email && cred.password === password);
+
+        if (isValid) {
+          // ✅ Salvează autentificarea
+          localStorage.setItem("user", JSON.stringify({ email: "admin@serty.ro" }));
+          window.location.href = "/app";
+        } else {
+          alert("Email sau parolă incorectă. Încearcă din nou.");
+        }
+      }
+      // Password reset modal
+      function showPasswordReset() {
+        document.getElementById("passwordResetModal").classList.remove("hidden");
+      }
+
+      function hidePasswordReset() {
+        document.getElementById("passwordResetModal").classList.add("hidden");
+      }
+
+      function handlePasswordReset(event) {
+        event.preventDefault();
+        const email = document.getElementById("reset-email").value;
+        alert(`Link de resetare trimis la ${email}. Verifică inbox-ul și spam-ul.`);
+        hidePasswordReset();
+      }
+
+      // Close modal on outside click
+      document.getElementById("passwordResetModal").addEventListener("click", function (e) {
+        if (e.target === this) {
+          hidePasswordReset();
+        }
+      });
+
+      // Auto-fill demo credentials on click
+      document.addEventListener("DOMContentLoaded", function () {
+        const demoCredentials = document.querySelectorAll(".demo-credential");
+        demoCredentials.forEach((cred) => {
+          cred.addEventListener("click", function () {
+            const email = this.dataset.email;
+            const password = this.dataset.password;
+            document.getElementById("email").value = email;
+            document.getElementById("password").value = password;
+          });
+        });
+      });
+    </script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+  </body>
+</html>

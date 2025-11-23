@@ -1,0 +1,132 @@
+/* containerul general (înlocuiește Dispozitive) */
+.home-notif-container {
+  background: #f5f5f5;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* listă scrollabilă în spațiul rămas */
+.home-notif-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+.home-notif-list::-webkit-scrollbar {
+  width: 6px;
+}
+.home-notif-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* card notificare */
+.home-notif-card {
+  background: #fff;
+  border: 1px solid #e6e8ec;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+/* bară de accent la stânga, ca în Setări */
+.home-notif-card::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: 14px 0 0 14px;
+  background: #d0d5dd;
+}
+.home-notif-card.warning::before {
+  background: #ffc107;
+}
+.home-notif-card.info::before {
+  background: #17a2b8;
+}
+.home-notif-card.urgent::before {
+  background: #dc3545;
+}
+.home-notif-card.success::before {
+  background: #28a745;
+}
+
+/* badge seră */
+.home-notif-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home-sera-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f4f6f8;
+  border: 1px solid #e6e8ec;
+  color: #334155;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* mesaj */
+.home-notif-message {
+  color: #1f2937;
+  line-height: 1.35;
+  font-size: 0.96rem;
+}
+
+/* acțiuni */
+.home-notif-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.home-notif-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.15s, transform 0.05s;
+}
+.home-notif-btn:active {
+  transform: translateY(1px);
+}
+.home-notif-btn.ok {
+  background: #28a745;
+  color: #fff;
+}
+.home-notif-btn.postpone {
+  background: #6c757d;
+  color: #fff;
+}
+.home-notif-btn.cancel {
+  background: #dc3545;
+  color: #fff;
+}
+
+/* mobil – plafon de înălțime ca să nu ocupe tot ecranul */
+@media (max-width: 767.98px) {
+  .home-notif-container {
+    height: auto;
+    max-height: 550px;
+    overflow: hidden;
+  }
+}

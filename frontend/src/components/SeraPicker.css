@@ -1,0 +1,89 @@
+/* ========== SeraPicker – pastilă dropdown (verde + capăt gri) ========== */
+
+/* container */
+.sera {
+  position: relative;
+  display: inline-flex; /* permite pastilei să se măsoare după conținut */
+  min-width: 0;
+}
+
+/* buton pastilă */
+.sera__btn {
+  display: grid;
+  grid-template-columns: max-content 46px; /* verde după CONȚINUT + capăt fix */
+  align-items: stretch;
+  border-radius: 999px;
+  overflow: hidden; /* margini curate */
+  border: 1px solid #0b3d2e; /* inel discret */
+  background: transparent;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.12), 0 2px 6px rgba(2, 6, 23, 0.06);
+  cursor: pointer;
+  padding: 0;
+  margin: 5px 0;
+}
+.sera__btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.25), 0 8px 24px rgba(2, 6, 23, 0.12);
+}
+
+/* segmentul verde (etichetă) – SE VEDE COMPLET */
+.sera__label {
+  background: linear-gradient(90deg, #198754 0%, #157347 100%);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  padding: 4px 15px;
+  white-space: nowrap; /* o singură linie */
+  overflow: visible; /* nu tăiem textul */
+  text-overflow: clip; /* nici „…” */
+}
+
+/* capătul gri cu săgeată – vizibil mereu */
+.sera__chev {
+  display: grid;
+  place-items: center;
+  width: 46px; /* fixat pentru consistență */
+  background: #141a22;
+  color: #fff;
+  transition: transform 0.18s ease;
+}
+.sera__btn.is-open .sera__chev {
+  transform: rotate(180deg);
+}
+
+/* meniu dropdown */
+.sera__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 60;
+  min-width: 100px; /* suficient de lat + cel puțin cât butonul */
+  max-width: 220px;
+  max-height: 300px;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(2, 6, 23, 0.16), 0 2px 6px rgba(2, 6, 23, 0.06);
+  padding: 6px;
+}
+
+/* item din meniu */
+.sera__item {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 9px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: #111827;
+  cursor: pointer;
+}
+.sera__item:hover {
+  background: #f3f4f6;
+}
+.sera__item.is-active {
+  background: #eef7f0;
+  border: 1px solid #a7e1bd;
+}

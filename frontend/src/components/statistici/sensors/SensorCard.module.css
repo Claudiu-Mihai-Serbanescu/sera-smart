@@ -1,0 +1,150 @@
+/* ==== Card general ==== */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-color, #fff);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 14px 14px 16px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 22px rgba(2, 6, 23, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s;
+  min-height: 220px;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.12);
+}
+
+/* ==== Stări ==== */
+.healthy {
+  border-color: rgba(25, 135, 84, 0.28);
+}
+.warning {
+  border-color: rgba(255, 193, 7, 0.38);
+}
+.danger {
+  border-color: rgba(220, 53, 69, 0.4);
+}
+
+/* Card special – Sănătate (highlight) */
+.highlight {
+  background: linear-gradient(180deg, #198754 0%, #36b06d 90%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 12px 30px rgba(25, 135, 84, 0.28);
+}
+.highlight .label {
+  color: #fff;
+}
+.highlight .helper {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ==== Ceas ==== */
+.gaugeWrap {
+  position: relative;
+  padding: 2px 6px; /* aer lateral în jurul ceasului */
+  margin: 4px 0 10px; /* spațiu rezonabil față de titlu */
+}
+.gaugeWrap svg {
+  display: block;
+  width: 100%;
+}
+
+/* ==== Valoarea din mijloc ==== */
+.valBox {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -10%); /* un pic mai sus în disc */
+  pointer-events: none;
+  width: 80%;
+}
+.val {
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  color: #0f172a;
+  font-size: clamp(24px, 4.6vw, 30px);
+}
+.valSm {
+  font-size: clamp(20px, 4.2vw, 28px);
+}
+.valXs {
+  font-size: clamp(18px, 3.8vw, 24px);
+}
+
+/* ==== Zona de text ==== */
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* Titlul – pe o singură linie */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  color: #222;
+  font-weight: 800;
+  line-height: 1.1;
+  font-size: clamp(13px, 2.1vw, 16px);
+  white-space: nowrap; /* nu se rupe */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis; /* … dacă nu încape */
+}
+.metaIcon {
+  font-size: 18px;
+  flex: 0 0 auto;
+  opacity: 0.95;
+}
+
+/* Subtitlul */
+.helper {
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* ==== Mobile polish ==== */
+@media (max-width: 640px) {
+  .card {
+    min-height: 206px;
+  }
+  .gaugeWrap {
+    margin-bottom: 8px;
+  }
+  .val {
+    font-size: clamp(22px, 6.2vw, 30px);
+  }
+  .label {
+    font-size: 13px;
+    gap: 6px;
+  }
+  .metaIcon {
+    font-size: 16px;
+  }
+  .helper {
+    font-size: 0.88rem;
+  }
+  .meta {
+    margin-top: 10px;
+  }
+}
+
+/* foarte îngust – păstrăm iconul, micșorăm tot ca să nu rupă titlul */
+@media (max-width: 380px) {
+  .label {
+    font-size: 12.5px;
+  }
+  .metaIcon {
+    font-size: 15px;
+  }
+}

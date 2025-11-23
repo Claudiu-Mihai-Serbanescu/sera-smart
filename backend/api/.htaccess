@@ -1,0 +1,23 @@
+# /backend/api/.htaccess
+Options -MultiViews
+RewriteEngine On
+
+# --- CORS pe TOATE răspunsurile, inclusiv erori/OPTIONS ---
+<IfModule mod_headers.c>
+    # permite dev + producție
+    SetEnvIf Origin "^(http://localhost:5173|https://serty\.ro)$" ACAO=$0
+    Header always set Access-Control-Allow-Origin "%{ACAO}e" env=ACAO
+    Header always set Vary "Origin"
+    Header always set Access-Control-Allow-Credentials "true"
+    Header always set Access-Control-Allow-Methods "GET,POST,PUT,DELETE,OPTIONS"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-User-Id"
+</IfModule>
+
+# --- Răspunde rapid la preflight ---
+RewriteCond %{REQUEST_METHOD} =OPTIONS
+RewriteRule ^ - [R=204,L]
+
+# --- Route: /api/foo -> /api/foo/index.php (și nested) ---
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+?)/?$ $1/index.php [L,QSA]

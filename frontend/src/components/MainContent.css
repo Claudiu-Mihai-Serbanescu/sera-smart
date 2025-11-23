@@ -1,0 +1,307 @@
+/* =======================================
+   Variables
+   ======================================= */
+:root {
+  --dash-gap: 22px;
+  --sidebar-pad-left: 90px; /* lățimea sidebarului fix din stânga */
+  --bottom-nav-h: 70px; /* înălțimea barei jos (dacă există) */
+
+  /* NEW: padding-uri dashboard */
+  --dash-pad-y: 20px; /* vertical top & bottom */
+  --dash-pad-x: 60px; /* dreapta */
+}
+
+/* =======================================
+       Base
+       ======================================= */
+.dashboard {
+  /* păstrăm layout-ul pe tot viewportul */
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  background: var(--background-color, #e8e8e8);
+
+  /* NEW: padding simetric sus/jos */
+  padding: var(--dash-pad-y) var(--dash-pad-x) var(--dash-pad-y) var(--sidebar-pad-left);
+
+  overflow: hidden; /* prevenim scroll pe desktop mare */
+}
+
+/* plăci comune */
+.tile {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.tile > * {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* zone grid */
+.tile--weather {
+  grid-area: weather;
+}
+.tile--sensors {
+  grid-area: sensors;
+}
+.tile--tasks {
+  grid-area: tasks;
+}
+.tile--camera {
+  grid-area: camera;
+}
+.tile--devices {
+  grid-area: devices;
+}
+
+/* camera pe desktop să umple rândul */
+@media (min-width: 1300px) {
+  .tile--camera {
+    height: 100%;
+  }
+}
+
+/* liste lungi cu scroll intern */
+.scrollable {
+  overflow: hidden;
+}
+.scrollable > * {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.scrollable .card-body,
+.scrollable .list,
+.scrollable .task-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+}
+
+/* card-uri generice */
+.card,
+.panel,
+.box,
+.mini-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.card-body,
+.panel-body,
+.box-body {
+  flex: 1 1;
+  min-height: 0;
+}
+
+.tile img,
+.tile video,
+.tile canvas {
+  max-width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =======================================
+       GRID LAYOUTS
+       ======================================= */
+.grid-mobile {
+  display: none;
+}
+
+/* ≥1601px — desktop mare */
+@media (min-width: 1601px) {
+  .grid-desktop {
+    display: grid;
+    grid-template-columns: 45% 23% 32%;
+    grid-template-rows: auto 1.2fr;
+    grid-template-areas:
+      "weather tasks  camera"
+      "sensors tasks  devices";
+    gap: 10px;
+
+    /* NEW: înălțime = 100vh - padding sus - padding jos */
+    height: calc(100vh - (2 * var(--dash-pad-y)));
+
+    align-items: stretch;
+  }
+
+  .map-shell {
+    margin: 20px 0;
+  }
+
+  .tile--sensors,
+  .tile--devices {
+    min-height: 0;
+  }
+}
+
+/* 1601–2000px — layout alternativ (dacă vrei să păstrezi proporțiile diferite) */
+@media (min-width: 1601px) and (max-width: 2000.98px) {
+  .camera-card {
+    width: auto;
+    height: 100%;
+  }
+
+  .grid-desktop {
+    display: grid;
+    grid-template-columns: 40% 25% 35%;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "weather tasks  camera"
+      "sensors tasks  devices";
+    gap: var(--dash-gap);
+
+    /* NEW: păstrează același calcul de înălțime cu padding jos vizibil */
+    height: calc(100vh - (2 * var(--dash-pad-y)));
+
+    align-items: stretch;
+  }
+}
+
+/* ≤1599px — layout cu scroll */
+@media (max-width: 1599.98px) {
+  .dashboard {
+    overflow: auto;
+    padding-left: var(--sidebar-pad-left);
+    padding-right: 16px;
+
+    /* pe ecrane mai mici lăsăm paddingul jos liber,
+           grila nu mai forțează 100vh */
+  }
+
+  .grid-desktop {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "weather"
+      "camera"
+      "sensors"
+      "tasks"
+      "devices";
+    gap: var(--dash-gap);
+    height: auto;
+  }
+
+  .grid-mobile {
+    display: none;
+  }
+  .tile {
+    min-height: auto;
+    height: auto;
+  }
+
+  .camera-card {
+    width: 100%;
+    min-height: 450px;
+  }
+}
+
+/* 769–991px */
+@media (min-width: 769px) and (max-width: 991.98px) {
+  .dashboard {
+    padding-left: var(--sidebar-pad-left);
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 0;
+    overflow: auto;
+  }
+  .grid-desktop {
+    display: none;
+  }
+  .grid-mobile {
+    display: block;
+  }
+  .stack {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+  .grid-mobile .stack > * {
+    width: 100%;
+    max-width: 100%;
+  }
+  .camera-card {
+    width: 100%;
+    min-height: 300px;
+  }
+}
+
+/* ≤768px */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 60px 0;
+    min-height: calc(100vh - 60px);
+    overflow: auto;
+  }
+  .grid-desktop {
+    display: none;
+  }
+  .grid-mobile {
+    display: block;
+  }
+  .stack {
+    margin: 0 10px 12px;
+  }
+  .camera-card {
+    width: 100%;
+    min-height: 250px;
+  }
+}
+
+/* DESKTOP mare */
+@media (min-width: 1601px) {
+  .grid-desktop {
+    /* păstrăm calc-ul tău pentru simetria padding-ului */
+    height: calc(100vh - (2 * var(--dash-pad-y)));
+
+    /* NEW: nu mai distribui spațiul liber între rânduri */
+    align-content: start;
+
+    /* NEW: rândul 2 umple restul, fără să umfle rândul 1 */
+    grid-template-rows: auto minmax(0, 1fr);
+
+    /* opțional: uniformizează gap-ul cu restul proiectului */
+    gap: var(--dash-gap);
+  }
+
+  /* NEW: cardurile din zone să umple integral aria de grilă */
+  .tile--weather > *,
+  .tile--camera > *,
+  .tile--tasks > *,
+  .tile--devices > * {
+    height: 100%;
+  }
+
+  /* NEW: scoate marginile verticale suplimentare din blocul de hartă */
+  .map-shell {
+    margin: 0;
+  }
+}
+/* Link-ul din meniu trebuie să fie poziționat relativ ca să prindă badge-ul */
+.menu-item {
+  position: relative;
+}
+
+/* Badge-ul verde din colț (ca în mock) */
+.menu-badge {
+  position: absolute;
+  top: -6px; /* ajustează dacă ai paddings diferite */
+  right: -6px;
+  min-width: 25px;
+  height: 25px;
+  padding: 0 6px;
+  border-radius: 29px;
+  background: #28a745;
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border: 2px solid #fff; /* mic „inel” alb ca să se desprindă de icon */
+}

@@ -1,0 +1,286 @@
+/* src/pages/Notificari.css */
+
+/* Container general al paginii de notificări */
+.notifications-page-container {
+  padding: 20px;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+  padding-top: 70px;
+}
+
+/* Antetul paginii */
+.page-header {
+  background-color: #ffffff;
+  padding: 15px 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  max-width: 1200px;
+}
+
+/* Butonul din header cu notificări */
+.header-notification-button {
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.header-notification-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+/* Badge-ul numeric atașat iconiței */
+.header-notification-badge {
+  background-color: #343a40;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* Titlul secțiunii notificări */
+.notifications-title {
+  margin: 40px auto 25px;
+  text-align: center;
+  color: #495057;
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+}
+.notifications-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #28a745;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+.notifications-title.postponed-title::after {
+  background-color: #ffc107;
+}
+.notifications-title.done-title::after {
+  background-color: #17a2b8;
+}
+
+/* Grila cardurilor de notificări */
+.notifications-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Mesaj când nu există notificări active */
+.no-notifications-message {
+  text-align: center;
+  color: #888;
+  margin-top: 50px;
+  grid-column: 1 / -1;
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+/* Cardul individual de notificare */
+.notification-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-left: 6px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 200px; /* Adăugare: înălțime minimă fixă */
+}
+.notification-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Statusuri card */
+.notification-card.realizat {
+  opacity: 0.8;
+  background-color: #eaf7ed;
+  border-left-color: #28a745;
+}
+.notification-card.amanat {
+  background-color: #fff8e1;
+  border-left-color: #ffc107;
+  opacity: 0.9;
+}
+
+/* Tipuri card */
+.notification-card.warning {
+  border-left-color: #ffc107;
+}
+.notification-card.info {
+  border-left-color: #17a2b8;
+}
+.notification-card.urgent {
+  border-left-color: #dc3545;
+}
+.notification-card.success {
+  border-left-color: #28a745;
+}
+
+/* Mesajul din card */
+.notification-message {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+  flex-grow: 1; /* Adăugare: ocupă spațiul disponibil */
+  max-height: 100px; /* Poți ajusta pentru a controla dimensiunea maximă a textului */
+  overflow-y: auto; /* Adăugare: scrollbar vertical pentru text lung */
+  padding-right: 10px; /* Spațiu pentru scrollbar */
+}
+
+/* Container pentru acțiuni card */
+.notification-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px; /* Micsorăm spațiul dintre butoane */
+  margin-top: auto; /* Adăugare: împinge butoanele la fundul cardului */
+}
+
+/* Butoane acțiuni */
+.notification-actionButton {
+  padding: 8px 15px; /* Micsorăm padding-ul */
+  border: none;
+  border-radius: 8px; /* Micsorăm raza */
+  cursor: pointer;
+  font-size: 0.9rem; /* Micsorăm font-size-ul */
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-transform: uppercase;
+}
+.notification-actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(100%);
+}
+.notification-actionButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Stiluri specifice butoane */
+.button-realizat {
+  background-color: #28a745;
+  color: #ffffff;
+}
+.button-realizat:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.button-amanat {
+  background-color: #6c757d;
+  color: #ffffff;
+}
+.button-amanat:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.button-anulat {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+.button-anulat:hover:not(:disabled) {
+  background-color: #c82333;
+}
+
+/* Iconițe */
+.bi {
+  font-size: 1.5rem;
+}
+
+/* Media query pentru ecrane mai mari de 769px */
+@media (min-width: 769px) {
+  .notifications-page-container {
+    /* Adăugăm padding-ul la stânga pentru a face loc meniului lateral */
+    padding-left: 250px; /* Ajustează această valoare în funcție de lățimea meniului tău */
+    padding-right: 20px;
+  }
+}
+
+/* Media query pentru ecrane mai mari de 769px */
+@media (min-width: 769px) {
+  .notifications-page-container {
+    /* Adăugăm padding-ul la stânga pentru a face loc meniului lateral */
+    padding-left: 100px; /* Ajustează această valoare în funcție de lățimea meniului tău */
+    padding-right: 20px;
+  }
+}
+
+/* Responsivitate pentru ecrane mai mici (așa cum era deja) */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .header-notification-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .notifications-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .notification-actions {
+    flex-direction: column;
+  }
+
+  .notification-actionButton {
+    width: 100%;
+  }
+}
+
+/* Responsivitate pentru ecrane mai mici */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .header-notification-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .notifications-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .notification-actions {
+    flex-direction: column;
+  }
+
+  .notification-actionButton {
+    width: 100%;
+  }
+}

@@ -1,0 +1,388 @@
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+/* Fonts */
+:root {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+}
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+  --background-color: #e8e8e8; /* Background color for the entire website, including individual sections */
+  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #45505b; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #28a745; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --menu-bg: #e8e8e8; /* fundal sidebar */
+  --item-bg: rgba(0, 0, 0, 0.05); /* cerc implicit */
+  --item-hover-bg: #28a745; /* verde la hover */
+  --item-active-bg: #b0b0b0; /* activ */
+  --text-color: #333; /* culoare iconițe */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #45505b; /* The default color of the main navmenu links */
+  --nav-hover-color: #28a745; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #28a745; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f9f9f9;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: #e8e8e8;
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 20px 0; /* sus/jos = 20px, stânga/dreapta implicit 0 până la media query */
+  overflow: clip;
+  min-height: 100vh;
+  padding-left: 90px; /* doar pe ecrane mari */
+  padding-right: 10px; /* doar pe ecrane mari */
+}
+
+/* Pe ecrane mici sub 768px, eliminăm padding-ul orizontal */
+@media (max-width: 767px) {
+  section,
+  .section {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 60px;
+  }
+}
+
+/* ===========================
+   Sidebar desktop/tablet
+   =========================== */
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--menu-bg);
+  padding: 15px;
+  width: fit-content;
+  z-index: 1000;
+}
+
+.sidebar-header .logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  margin-bottom: -30px;
+}
+
+.sidebar-nav,
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ===========================
+   Comun – menu items
+   =========================== */
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(207, 207, 207);
+  border-radius: 25%;
+  width: 50px;
+  height: 50px;
+  transition: background 0.2s, color 0.2s;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 26px;
+}
+
+.menu-item:hover {
+  background: var(--item-hover-bg);
+  color: #000; /* iconița devine neagră */
+}
+
+.menu-item.active {
+  background: #414141;
+  color: white;
+}
+
+/* Ascunde sidebar pe mobil */
+@media (max-width: 767px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+/* ===========================
+   Header mobil
+   =========================== */
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  background: transparent;
+  z-index: 1000;
+}
+
+.mobile-header .logo {
+  width: 40px;
+  height: 40px;
+}
+
+.mobile-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ===========================
+   Bottom nav mobil
+   =========================== */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+  background: transparent;
+  z-index: 1000;
+}
+
+.mobile-bottom-nav .menu-item {
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+}
+
+.mobile-bottom-nav .menu-item:hover {
+  background: var(--item-hover-bg);
+  color: #000; /* iconița devine neagră */
+}
+
+.mobile-bottom-nav .menu-item.active {
+  background: #414141;
+}
+
+/* Ascunde butoanele mobile pe desktop */
+@media (min-width: 768px) {
+  .mobile-header,
+  .mobile-bottom-nav {
+    display: none;
+  }
+}
+
+.service-item .weather-box ul {
+  padding-left: 1rem;
+  margin-bottom: 0;
+}
+
+.service-item .weather-box li::before {
+  content: "☀️ ";
+  margin-right: 5px;
+}
+
+.service-item h3,
+.service-item p,
+.service-item li {
+  text-align: left !important;
+  color: #333;
+}
+
+.sera-info {
+  border-left: 4px solid var(--accent-color, #28a745);
+}
+
+.service-item .sera-info {
+  font-size: 0.95rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 10px 15px;
+  border-radius: 10px;
+  border-left: 4px solid var(--accent-color, #28a745);
+}
+
+.mini-box {
+  transition: transform 0.2s ease;
+}
+
+.mini-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-list {
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+/* Container general */
+.vreme-container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+/* Headerul cu icon + dropdown */
+.vreme-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+/* Secțiunea cu prognoză */
+.vreme-prognoza {
+  margin-bottom: 12px;
+}
+
+.vreme-prognoza ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+/* Casetă albă cu informații */
+.vreme-informatii {
+  background-color: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.vreme-informatii p {
+  margin: 0 0 4px;
+}
+
+/* Dropdown simplu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background-color: var(--accent-color, #28a745);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 160px;
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 767.98px) {
+  .sere-grid-card {
+    display: none !important;
+  }
+}

@@ -1,0 +1,218 @@
+/* ===== Container secțiune ===== */
+.sarcini-container {
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  /* cheie pentru scroll DOAR în lista de sarcini */
+  display: flex;
+  flex-direction: column;
+  height: clamp(560px, 72vh, 720px); /* pe desktop: cutie fixă */
+  overflow: hidden; /* scoatem scroll-ul de pe container */
+}
+
+/* pe ecrane mici facem cardul puțin mai înalt (ai și Automatizări sus) */
+@media (max-width: 768px) {
+  .sarcini-container {
+    height: clamp(620px, 78vh, 820px);
+  }
+}
+
+/* ===== Titluri ===== */
+.sarcini-header h3,
+.qa-title {
+  margin: 0px 0 10px 0;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1f2b3a;
+}
+
+/* ===== Panou „Automatizări” ===== */
+.autos-panel {
+  background: #fff;
+  border: 1px solid #e6e8ec;
+  border-radius: 12px;
+  padding: 12px;
+  margin: -10px -10px 20px -10px; /* distanță clară față de „Sarcini realizate” */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Grid fluid: cardurile curg pe lățime și se împachetează pe rând nou */
+.autos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+/* Mini-card: icon + nume (stânga), toggle (dreapta) */
+.qa-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #edf0f4;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  text-align: left;
+}
+
+.qa-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qa-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+.qa-name {
+  font-weight: 700;
+  color: #1f2b3a;
+}
+
+/* Toggle „aproape pătrat” */
+.qa-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.qa-toggle input {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.qa-slider {
+  width: 46px;
+  height: 28px;
+  border-radius: 6px; /* nu „pill”, colțuri mai pătrate */
+  background: #cfd4dc; /* OFF */
+  position: relative;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: inset 0 0 0 2px #cfd4dc;
+}
+.qa-slider::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: transform 0.22s;
+}
+/* ON */
+.qa-toggle input:checked + .qa-slider {
+  background: #10b981;
+  box-shadow: inset 0 0 0 2px #10b981;
+}
+.qa-toggle input:checked + .qa-slider::before {
+  transform: translateX(18px);
+}
+
+/* ===== Progres + metrice ===== */
+.progress-bar-container {
+  background: #e0e0e0;
+  border-radius: 4px;
+  height: 6px;
+  overflow: hidden;
+  margin: -5px 0 0 0;
+}
+.progress-bar-fill {
+  background: #3cb371;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.tasks-subheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2px 0 12px;
+}
+.tasks-subtitle {
+  font-weight: 800;
+  color: #1f2b3a;
+}
+.tasks-metrics {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.progress-percentage {
+  font-weight: 800;
+  color: #333;
+}
+.progress-count {
+  color: #555;
+}
+
+/* ===== Lista sarcini ===== */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 -8px;
+
+  /* ocupă spațiul rămas în card */
+  flex: 1 1 auto;
+  min-height: 0; /* important pentru flex + overflow */
+  overflow-y: auto;
+
+  /* „respirație” jos ca ultimul card să nu fie lipit de margine */
+  --scroll-pad: 14px;
+  padding-bottom: var(--scroll-pad);
+  scroll-padding-bottom: var(--scroll-pad);
+  position: relative;
+}
+.task-list::after {
+  content: "";
+  display: block;
+  height: var(--scroll-pad); /* buffer la capătul listei */
+}
+.task-card {
+  background: #fff;
+  border: 1px solid #e6e8ec;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+}
+.task-content {
+  flex: 1;
+}
+.task-title {
+  display: block;
+  margin-bottom: 4px;
+}
+.task-description {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+.task-time {
+  color: #6c757d;
+  font-size: 13px;
+}
+.task-icon {
+  margin-left: 10px;
+}
+
+/* ===== Fine-tuning mobil mic ===== */
+@media (max-width: 380px) {
+  .autos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,194 @@
+:root {
+  /* Tabs */
+  --tab-gap: 10px;
+  --tab-h: 40px;
+  --tab-pad-x: 12px;
+  --tab-radius: 9999px;
+  --border: #e5e7eb;
+  --text: #0f172a;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 22px rgba(2, 6, 23, 0.06);
+  --shadow-md: 0 12px 26px rgba(2, 6, 23, 0.12);
+
+  /* Offsets meniuri */
+  --sidebar-left-lg: 90px; /* meniu stânga (desktop/tabletă) */
+  --topbar-sm: 60px; /* meniu sus (mobil) */
+  --bottombar-sm: 80px; /* meniu jos (mobil) */
+}
+
+/* ===== Container pagină statistici ===== */
+.statsWrap {
+  /* implicit, mic respiro; offset-urile reale vin din media queries */
+  padding: 8px 12px 14px 50px;
+}
+
+/* cardul „mare” care conține tabs + panou */
+.statsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* bara de taburi (selecturi/butoane) */
+.statsTabs {
+  display: flex;
+  align-items: center;
+  gap: var(--tab-gap);
+  flex-wrap: wrap;
+  overflow: visible;
+  padding: 4px 0;
+  justify-content: flex-start;
+}
+
+/* select stil „pill” */
+.statsSelect {
+  height: var(--tab-h);
+  min-width: clamp(130px, 32vw, 200px);
+  padding: 0 calc(var(--tab-pad-x) + 10px) 0 var(--tab-pad-x);
+  border-radius: var(--tab-radius);
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-weight: 600;
+  appearance: none;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+.statsSelect:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25), var(--shadow-sm);
+  border-color: #93c5fd;
+}
+
+/* buton-tab „pill” generic */
+.tabPill {
+  --accent: #3b82f6;
+  height: var(--tab-h);
+  padding: 0 var(--tab-pad-x);
+  border-radius: var(--tab-radius);
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.tabPill:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.tabPill:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent), var(--shadow-sm);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+.sensorsTab {
+  --accent: #16a34a;
+}
+.accuTab {
+  --accent: #7c3aed;
+}
+
+.tabPill.active {
+  border-color: color-mix(in srgb, var(--accent) 55%, #cbd5e1);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 18%, transparent), var(--shadow-md);
+}
+
+/* panoul de conținut al fiecărui tab */
+.tabPanel {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: var(--shadow-sm);
+  min-height: 120px;
+}
+.tabPanel--sensors {
+  border-color: color-mix(in srgb, #16a34a 20%, var(--border));
+}
+.tabPanel--accu {
+  border-color: color-mix(in srgb, #7c3aed 20%, var(--border));
+}
+.tabPanel--autos {
+  padding-bottom: 0 !important;
+}
+
+/* erori / placeholder */
+.statsError {
+  background: #fff1f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.accuPlaceholder {
+  display: grid;
+  gap: 8px;
+}
+.accuBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #f8fafc;
+}
+
+/* Selector sers (pills dropdown) */
+.statsBoxHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 10px 0 15px 0;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 10px 10px;
+}
+
+/* ===== Offsets după meniuri ===== */
+@media (min-width: 768px) {
+  .statsWrap {
+    padding-left: var(--sidebar-left-lg);
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 14px;
+  }
+}
+@media (max-width: 767.98px) {
+  .statsWrap {
+    padding-top: var(--topbar-sm);
+    padding-bottom: var(--bottombar-sm);
+    padding-left: 10px;
+    padding-right: 5px;
+  }
+}
+
+/* mobil – micșorări subtile */
+@media (max-width: 640px) {
+  :root {
+    --tab-h: 36px;
+    --tab-pad-x: 10px;
+  }
+  .statsTabs {
+    gap: 8px;
+  }
+}
+.tabPill,
+.statsSelect {
+  flex: 1 1 auto; /* se pot micșora și ocupa spațiul rămas */
+  max-width: calc(50% - 8px); /* pe ecrane mici, max 2 pe rând */
+}
+
+@media (max-width: 480px) {
+  .tabPill,
+  .statsSelect {
+    max-width: 100%; /* pe telefoane foarte mici ocupă 100% lățimea */
+  }
+}

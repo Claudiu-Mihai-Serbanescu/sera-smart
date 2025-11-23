@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByteStorm Sere - Tehnologie care înțelege agricultura</title>
+    <meta name="description" content="Platformă agricolă inteligentă pentru fermieri români. Monitorizare IoT și automatizare pentru sere cu rezultate dovedite." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      type="module"
+      src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fbytestorm2668back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+  </head>
+  <body class="bg-background">
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M16 2L8 8v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V8l-8-6z" />
+                <circle cx="16" cy="14" r="3" fill="white" />
+                <path d="M12 20h8v2h-8z" fill="white" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <h1 class="text-xl font-bold text-primary">ByteStorm</h1>
+              <p class="text-xs text-secondary -mt-1">Sere</p>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a href="homepage.html" class="text-primary font-medium border-b-2 border-primary pb-1">Acasă</a>
+              <a href="features.html" class="text-gray-600 hover:text-primary transition-colors">Caracteristici</a>
+              <a href="how_it_works.html" class="text-gray-600 hover:text-primary transition-colors">Cum funcționează</a>
+              <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors">Prețuri</a>
+              <a href="contact.html" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="hidden md:block">
+            <a href="login.html" class="btn-primary">Autentificare</a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button type="button" class="text-gray-600 hover:text-primary" onclick="toggleMobileMenu()">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden">
+          <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100">
+            <a href="homepage.html" class="block px-3 py-2 text-primary font-medium">Acasă</a>
+            <a href="features.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Caracteristici</a>
+            <a href="how_it_works.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Cum funcționează</a>
+            <a href="pricing.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Prețuri</a>
+            <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Contact</a>
+            <a href="login.html" class="block px-3 py-2 btn-primary text-center mt-4">Autentificare</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-primary-50 to-secondary-50">
+      <div class="absolute inset-0 agricultural-pattern opacity-30"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Hero Content -->
+          <div class="text-center lg:text-left">
+            <h1 class="text-4xl lg:text-6xl font-bold text-primary mb-6 animate-fade-in-up">Tehnologie care înțelege agricultura</h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
+              Împuternicim fermierii români cu automatizare inteligentă și monitorizare IoT pentru sere productive și sustenabile.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style="animation-delay: 0.4s">
+              <a href="login.html" class="btn-primary text-center shadow-cta">Începe perioada de probă gratuită</a>
+              <a href="how_it_works.html" class="btn-secondary text-center">Vezi cum funcționează</a>
+            </div>
+          </div>
+
+          <!-- Dashboard Preview -->
+          <div class="relative animate-slide-in-right">
+            <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-primary">Dashboard Live</h3>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                  <span class="text-sm text-gray-500">Online</span>
+                </div>
+              </div>
+
+              <!-- Mock Dashboard Content -->
+              <div class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="bg-primary-50 rounded-lg p-4">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <p class="text-sm text-gray-600">Temperatură</p>
+                        <p class="text-2xl font-bold text-primary">24.5°C</p>
+                      </div>
+                      <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="bg-secondary-50 rounded-lg p-4">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <p class="text-sm text-gray-600">Umiditate</p>
+                        <p class="text-2xl font-bold text-secondary">68%</p>
+                      </div>
+                      <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2s-6 6-6 10a6 6 0 1012 0c0-4-6-10-6-10z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Chart Placeholder -->
+                <div class="bg-gray-50 rounded-lg p-4 h-32 flex items-center justify-center">
+                  <svg class="w-full h-full" viewBox="0 0 300 100">
+                    <polyline fill="none" stroke="#16A34A" stroke-width="2" points="0,80 50,60 100,70 150,40 200,50 250,30 300,35" />
+                    <circle cx="300" cy="35" r="3" fill="#16A34A" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Metrics -->
+    <section class="bg-white py-12 border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div class="animate-fade-in-up">
+            <div class="text-4xl font-bold text-primary mb-2">500+</div>
+            <div class="text-gray-600">Sere monitorizate</div>
+          </div>
+          <div class="animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="text-4xl font-bold text-secondary mb-2">2.5M</div>
+            <div class="text-gray-600">Litri apă economisiți</div>
+          </div>
+          <div class="animate-fade-in-up" style="animation-delay: 0.4s">
+            <div class="text-4xl font-bold text-accent mb-2">98%</div>
+            <div class="text-gray-600">Timp funcționare</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Preview -->
+    <section class="py-20 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">Soluții complete pentru agricultura modernă</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">Tehnologie avansată adaptată nevoilor fermierilor români pentru rezultate măsurabile și sustenabile.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- IoT Monitoring -->
+          <div class="card group hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors">
+              <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-primary mb-4">Monitorizare IoT</h3>
+            <p class="text-gray-600 mb-4">Senzori avansați pentru temperatură, umiditate, pH și nutrienți cu alerte în timp real.</p>
+            <div class="hidden group-hover:block text-sm text-secondary">
+              • Raspberry Pi 4 compatibil
+              <br />
+              • Protocol MQTT securizat
+              <br />
+              • Alerte SMS și email
+            </div>
+          </div>
+
+          <!-- Intelligent Automation -->
+          <div class="card group hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary-200 transition-colors">
+              <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-primary mb-4">Automatizare Inteligentă</h3>
+            <p class="text-gray-600 mb-4">Controlul automat al irigației, ventilației și iluminatului bazat pe algoritmi AI.</p>
+            <div class="hidden group-hover:block text-sm text-secondary">
+              • Programare avansată
+              <br />
+              • Învățare automată
+              <br />
+              • Optimizare energetică
+            </div>
+          </div>
+
+          <!-- ROI Optimization -->
+          <div class="card group hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent-200 transition-colors">
+              <svg class="w-6 h-6 text-accent-600" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-primary mb-4">Optimizare ROI</h3>
+            <p class="text-gray-600 mb-4">Analize detaliate și rapoarte pentru maximizarea profitabilității și reducerea costurilor.</p>
+            <div class="hidden group-hover:block text-sm text-secondary">
+              • Dashboard analitică
+              <br />
+              • Predicții de recoltă
+              <br />
+              • Rapoarte financiare
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">Fermieri mulțumiți din toată România</h2>
+          <p class="text-xl text-gray-600">Rezultate reale de la fermierii care au ales ByteStorm Sere</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="card">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face"
+                alt="Ion Popescu"
+                class="w-12 h-12 rounded-full object-cover mr-4"
+                onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+              <div>
+                <h4 class="font-semibold text-primary">Ion Popescu</h4>
+                <p class="text-sm text-gray-500">Brașov, 8 sere</p>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "Am crescut producția cu 35% în primul sezon. Sistemul de monitorizare m-a ajutat să optimizez irigația și să reduc consumul de apă cu 40%."
+            </p>
+            <div class="flex text-accent mt-4">★★★★★</div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="card">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face"
+                alt="Maria Ionescu"
+                class="w-12 h-12 rounded-full object-cover mr-4"
+                onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+              <div>
+                <h4 class="font-semibold text-primary">Maria Ionescu</h4>
+                <p class="text-sm text-gray-500">Cluj, 15 sere</p>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "Automatizarea mi-a dat libertatea să mă concentrez pe dezvoltarea afacerii. Economisesc 20 de ore pe săptămână și am rezultate mai bune."
+            </p>
+            <div class="flex text-accent mt-4">★★★★★</div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="card">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face"
+                alt="Gheorghe Marin"
+                class="w-12 h-12 rounded-full object-cover mr-4"
+                onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+              <div>
+                <h4 class="font-semibold text-primary">Gheorghe Marin</h4>
+                <p class="text-sm text-gray-500">Constanța, 25 sere</p>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">"ROI-ul a fost evident din prima lună. Calitatea tomatelor s-a îmbunătățit considerabil, iar clienții observă diferența."</p>
+            <div class="flex text-accent mt-4">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Trust Section -->
+    <section class="py-16 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl font-bold text-primary mb-4">Tehnologie de încredere, parteneri verificați</h2>
+          <p class="text-gray-600">Colaborăm cu liderii industriei pentru soluții sigure și performante</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+          <!-- Raspberry Pi Partnership -->
+          <div class="text-center">
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 mb-3">
+              <svg class="w-12 h-12 mx-auto text-red-600" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 14.832c-.554.832-1.448 1.44-2.568 1.44s-2.014-.608-2.568-1.44L12 14.4l-.432.432c-.554.832-1.448 1.44-2.568 1.44s-2.014-.608-2.568-1.44c-.554-.832-.432-1.872.432-2.304L12 9.6l5.136 2.928c.864.432.986 1.472.432 2.304z" />
+              </svg>
+            </div>
+            <p class="text-sm font-medium text-gray-700">Raspberry Pi</p>
+            <p class="text-xs text-gray-500">Partner Oficial</p>
+          </div>
+
+          <!-- MQTT Certification -->
+          <div class="text-center">
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 mb-3">
+              <svg class="w-12 h-12 mx-auto text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+            </div>
+            <p class="text-sm font-medium text-gray-700">MQTT</p>
+            <p class="text-xs text-gray-500">Certificat</p>
+          </div>
+
+          <!-- EU Data Compliance -->
+          <div class="text-center">
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 mb-3">
+              <svg class="w-12 h-12 mx-auto text-yellow-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+              </svg>
+            </div>
+            <p class="text-sm font-medium text-gray-700">GDPR</p>
+            <p class="text-xs text-gray-500">Conformitate UE</p>
+          </div>
+
+          <!-- ISO Certification -->
+          <div class="text-center">
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 mb-3">
+              <svg class="w-12 h-12 mx-auto text-green-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+              </svg>
+            </div>
+            <p class="text-sm font-medium text-gray-700">ISO 27001</p>
+            <p class="text-xs text-gray-500">Securitate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-secondary">
+      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">Începe transformarea digitală a serei tale astăzi</h2>
+        <p class="text-xl text-primary-100 mb-8">Alătură-te celor 500+ de fermieri care au ales să crească inteligent cu ByteStorm Sere</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="login.html" class="bg-white text-primary font-semibold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-50 transition-colors">Începe perioada de probă gratuită</a>
+          <a href="contact.html" class="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-primary transition-colors">
+            Vorbește cu un expert
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-950 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid md:grid-cols-4 gap-8">
+          <!-- Company Info -->
+          <div class="col-span-1">
+            <div class="flex items-center mb-4">
+              <svg class="h-8 w-8 text-white" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M16 2L8 8v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V8l-8-6z" />
+                <circle cx="16" cy="14" r="3" fill="#0A3D31" />
+                <path d="M12 20h8v2h-8z" fill="#0A3D31" />
+              </svg>
+              <div class="ml-3">
+                <h3 class="text-xl font-bold">ByteStorm</h3>
+                <p class="text-sm text-primary-200 -mt-1">Sere</p>
+              </div>
+            </div>
+            <p class="text-primary-200 text-sm">Tehnologie care înțelege agricultura. Soluții IoT pentru fermieri români.</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 class="font-semibold mb-4">Navigare</h4>
+            <ul class="space-y-2 text-sm text-primary-200">
+              <li><a href="homepage.html" class="hover:text-white transition-colors">Acasă</a></li>
+              <li><a href="features.html" class="hover:text-white transition-colors">Caracteristici</a></li>
+              <li><a href="how_it_works.html" class="hover:text-white transition-colors">Cum funcționează</a></li>
+              <li><a href="pricing.html" class="hover:text-white transition-colors">Prețuri</a></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div>
+            <h4 class="font-semibold mb-4">Suport</h4>
+            <ul class="space-y-2 text-sm text-primary-200">
+              <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Documentație</a></li>
+              <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Comunitate</a></li>
+              <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Status</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2 text-sm text-primary-200">
+              <li>📧 contact@bytestorm.ro</li>
+              <li>📞 +40 21 123 4567</li>
+              <li>📍 București, România</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-primary-800 mt-12 pt-8 text-center text-sm text-primary-200">
+          <p>© 2025 ByteStorm Sere. Toate drepturile rezervate.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky CTA for Mobile -->
+    <div class="fixed bottom-4 left-4 right-4 md:hidden z-40">
+      <a href="login.html" class="block w-full bg-primary text-white text-center font-semibold py-3 px-6 rounded-lg shadow-lg">Începe perioada de probă</a>
+    </div>
+
+    <script>
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in-up");
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document.querySelectorAll(".card, .animate-fade-in-up").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+  </body>
+</html>

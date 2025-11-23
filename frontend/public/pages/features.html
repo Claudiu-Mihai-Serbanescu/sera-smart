@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caracteristici - ByteStorm Sere | Tehnologie IoT pentru Sere</title>
+    <meta name="description" content="Explorează caracteristicile avansate ByteStorm Sere: monitorizare IoT, automatizare inteligentă și analiză predictivă pentru fermieri români." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fbytestorm2668back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background">
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L8 8v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V8l-8-6z"/>
+                            <circle cx="16" cy="14" r="3" fill="white"/>
+                            <path d="M12 20h8v2h-8z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-primary">ByteStorm</h1>
+                        <p class="text-xs text-secondary -mt-1">Sere</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="homepage.html" class="text-gray-600 hover:text-primary transition-colors">Acasă</a>
+                        <a href="features.html" class="text-primary font-medium border-b-2 border-primary pb-1">Caracteristici</a>
+                        <a href="how_it_works.html" class="text-gray-600 hover:text-primary transition-colors">Cum funcționează</a>
+                        <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors">Prețuri</a>
+                        <a href="contact.html" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="login.html" class="btn-primary">Autentificare</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-600 hover:text-primary" onclick="toggleMobileMenu()">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100">
+                    <a href="homepage.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Acasă</a>
+                    <a href="features.html" class="block px-3 py-2 text-primary font-medium">Caracteristici</a>
+                    <a href="how_it_works.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Cum funcționează</a>
+                    <a href="pricing.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Prețuri</a>
+                    <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-primary">Contact</a>
+                    <a href="login.html" class="block px-3 py-2 btn-primary text-center mt-4">Autentificare</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-primary-50 to-secondary-50 py-16">
+        <div class="absolute inset-0 agricultural-pattern opacity-30"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-6 animate-fade-in-up">
+                    Caracteristici Avansate pentru Agricultura Modernă
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8 animate-fade-in-up" style="animation-delay: 0.2s">
+                    Explorează tehnologia care transformă serele românești în ecosisteme inteligente și productive
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Feature Explorer -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Feature Toggle Navigation -->
+            <div class="flex flex-wrap justify-center mb-12">
+                <div class="bg-surface rounded-xl p-2 inline-flex">
+                    <button onclick="switchFeature('iot')" id="iot-tab" class="feature-tab active px-6 py-3 rounded-lg font-semibold transition-all duration-300">
+                        Monitorizare IoT
+                    </button>
+                    <button onclick="switchFeature('automation')" id="automation-tab" class="feature-tab px-6 py-3 rounded-lg font-semibold transition-all duration-300">
+                        Automatizare Inteligentă
+                    </button>
+                    <button onclick="switchFeature('analytics')" id="analytics-tab" class="feature-tab px-6 py-3 rounded-lg font-semibold transition-all duration-300">
+                        Analiză Predictivă
+                    </button>
+                </div>
+            </div>
+
+            <!-- Feature Content Sections -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- IoT Monitoring Section -->
+                <div id="iot-content" class="feature-content">
+                    <div class="space-y-6">
+                        <h2 class="text-3xl font-bold text-primary mb-4">Monitorizare IoT Avansată</h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Senzori de înaltă precizie conectați prin protocoale sigure pentru monitorizarea completă a mediului din seră.
+                        </p>
+
+                        <!-- Sensor Specifications -->
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-primary-50 rounded-lg p-4">
+                                <div class="flex items-center mb-3">
+                                    <svg class="w-6 h-6 text-primary mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6z"/>
+                                    </svg>
+                                    <h3 class="font-semibold text-primary">Temperatură</h3>
+                                </div>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Precizie: ±0.1°C</li>
+                                    <li>• Interval: -40°C la +85°C</li>
+                                    <li>• Actualizare: 30 secunde</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-secondary-50 rounded-lg p-4">
+                                <div class="flex items-center mb-3">
+                                    <svg class="w-6 h-6 text-secondary mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 2s-6 6-6 10a6 6 0 1012 0c0-4-6-10-6-10z"/>
+                                    </svg>
+                                    <h3 class="font-semibold text-secondary">Umiditate</h3>
+                                </div>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Precizie: ±2% RH</li>
+                                    <li>• Interval: 0-100% RH</li>
+                                    <li>• Calibrare automată</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-accent-50 rounded-lg p-4">
+                                <div class="flex items-center mb-3">
+                                    <svg class="w-6 h-6 text-accent-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M12 2l3.09 6.26L22 9l-5 4.87L18.18 20 12 16.77 5.82 20 7 13.87 2 9l6.91-.74L12 2z"/>
+                                    </svg>
+                                    <h3 class="font-semibold text-accent-600">Lumină</h3>
+                                </div>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Spectru complet</li>
+                                    <li>• 0-200,000 lux</li>
+                                    <li>• Analiză PAR</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-success-50 rounded-lg p-4">
+                                <div class="flex items-center mb-3">
+                                    <svg class="w-6 h-6 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                    </svg>
+                                    <h3 class="font-semibold text-success">Sol & pH</h3>
+                                </div>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• pH: 3.5-9.0</li>
+                                    <li>• Umiditate sol: 0-100%</li>
+                                    <li>• Nutrienți NPK</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Raspberry Pi Integration -->
+                        <div class="bg-gray-50 rounded-lg p-6 mt-6">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                Integrare Raspberry Pi 4
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Compatibilitate completă cu Raspberry Pi 4, instalare simplă prin script automatizat.
+                            </p>
+                            <div class="bg-white rounded p-3 font-mono text-sm">
+                                <code class="text-primary">curl -sSL https://install.bytestorm.ro | bash</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automation Section -->
+                <div id="automation-content" class="feature-content hidden">
+                    <div class="space-y-6">
+                        <h2 class="text-3xl font-bold text-primary mb-4">Automatizare Inteligentă</h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Algoritmi avansați de învățare automată pentru controlul optim al mediului din seră.
+                        </p>
+
+                        <!-- Automation Scenarios -->
+                        <div class="space-y-4">
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-primary transition-colors">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="font-semibold text-primary">Irigație Inteligentă</h4>
+                                    <span class="bg-success-100 text-success-700 px-2 py-1 rounded text-sm">Activ</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    Controlul automat al irigației bazat pe umiditatea solului, vremea și stadiul de creștere.
+                                </p>
+                                <div class="grid grid-cols-3 gap-2 text-xs">
+                                    <div class="bg-gray-50 rounded p-2 text-center">
+                                        <div class="font-semibold">Economie apă</div>
+                                        <div class="text-success">40%</div>
+                                    </div>
+                                    <div class="bg-gray-50 rounded p-2 text-center">
+                                        <div class="font-semibold">Precizie</div>
+                                        <div class="text-primary">±5ml</div>
+                                    </div>
+                                    <div class="bg-gray-50 rounded p-2 text-center">
+                                        <div class="font-semibold">Zone</div>
+                                        <div class="text-secondary">1-16</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-primary transition-colors">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="font-semibold text-primary">Ventilație Adaptivă</h4>
+                                    <span class="bg-accent-100 text-accent-700 px-2 py-1 rounded text-sm">Programat</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    Controlul automat al ventilației pentru menținerea temperaturii și umidității optime.
+                                </p>
+                                <div class="grid grid-cols-3 gap-2 text-xs">
+                                    <div class="bg-gray-50 rounded p-2 text-center">
+                                        <div class="font-semibold">Eficiență</div>
+                                        <div class="text-success">95%</div>
+                                    </div>
+                                    <div class="bg-gray-50 rounded p-2 text-center">
+                                        <div class="font-semibold">Răspuns</div>
+                                        <div class="text-primary">30s</div>
+                                    </div>
+                                    <div class="bg-gray-50 rounded p-2 text-center">
+                                        <div class="font-semibold">Motoare</div>
+                                        <div class="text-secondary">1-8</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-primary transition-colors">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="font-semibold text-primary">Iluminat LED</h4>
+                                    <span class="bg-secondary-100 text-secondary-700 px-2 py-1 rounded text-sm">Optimizat</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    Controlul spectral al iluminatului LED pentru maximizarea fotosintezei.
+                                </p>
+                                <div class="grid grid-cols-3 gap-2 text-xs">
+                                    <div class="bg-gray-50 rounded p-2 text-center">
+                                        <div class="font-semibold">Spectru</div>
+                                        <div class="text-success">Full</div>
+                                    </div>
+                                    <div class="bg-gray-50 rounded p-2 text-center">
+                                        <div class="font-semibold">Economie</div>
+                                        <div class="text-primary">60%</div>
+                                    </div>
+                                    <div class="bg-gray-50 rounded p-2 text-center">
+                                        <div class="font-semibold">Canale</div>
+                                        <div class="text-secondary">RGB+W</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Crop-Specific Recipes -->
+                        <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-lg p-6">
+                            <h4 class="font-semibold text-primary mb-4">Rețete pentru Culturi Românești</h4>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-white rounded-lg p-4 text-center">
+                                    <img src="https://images.pexels.com/photos/1327838/pexels-photo-1327838.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Roșii" class="w-16 h-16 rounded-full mx-auto mb-3 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <h5 class="font-semibold text-primary">Roșii</h5>
+                                    <p class="text-sm text-gray-600">Optimizat pentru clima românească</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4 text-center">
+                                    <img src="https://images.pixabay.com/photo/2016/08/26/17/40/cucumber-1622889_960_720.jpg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Castraveți" class="w-16 h-16 rounded-full mx-auto mb-3 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <h5 class="font-semibold text-primary">Castraveți</h5>
+                                    <p class="text-sm text-gray-600">Creștere accelerată</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4 text-center">
+                                    <img src="https://images.unsplash.com/photo-1525607551316-4a8e16d1f9ba?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Ardei" class="w-16 h-16 rounded-full mx-auto mb-3 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <h5 class="font-semibold text-primary">Ardei</h5>
+                                    <p class="text-sm text-gray-600">Producție maximă</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div id="analytics-content" class="feature-content hidden">
+                    <div class="space-y-6">
+                        <h2 class="text-3xl font-bold text-primary mb-4">Analiză Predictivă</h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Inteligență artificială pentru predicții precise și optimizarea continuă a producției.
+                        </p>
+
+                        <!-- Prediction Models -->
+                        <div class="space-y-4">
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                    <svg class="w-5 h-5 mr-2 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                                    </svg>
+                                    Predicții de Recoltă
+                                </h4>
+                                <p class="text-gray-600 mb-4">
+                                    Estimări precise ale producției bazate pe datele istorice și condițiile actuale.
+                                </p>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-success-50 rounded-lg p-4">
+                                        <div class="text-2xl font-bold text-success">2.3 tone</div>
+                                        <div class="text-sm text-gray-600">Predicție următoarea lună</div>
+                                    </div>
+                                    <div class="bg-primary-50 rounded-lg p-4">
+                                        <div class="text-2xl font-bold text-primary">94%</div>
+                                        <div class="text-sm text-gray-600">Precizie predicții</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                    <svg class="w-5 h-5 mr-2 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"/>
+                                    </svg>
+                                    Alerte Preventive
+                                </h4>
+                                <p class="text-gray-600 mb-4">
+                                    Detectarea timpurie a problemelor potențiale și recomandări de acțiune.
+                                </p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between bg-warning-50 rounded p-3">
+                                        <span class="text-sm">Risc de mană - Seră 3</span>
+                                        <span class="bg-warning text-white px-2 py-1 rounded text-xs">Mediu</span>
+                                    </div>
+                                    <div class="flex items-center justify-between bg-success-50 rounded p-3">
+                                        <span class="text-sm">Condiții optime - Seră 1</span>
+                                        <span class="bg-success text-white px-2 py-1 rounded text-xs">Bun</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                    <svg class="w-5 h-5 mr-2 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Optimizare Resurse
+                                </h4>
+                                <p class="text-gray-600 mb-4">
+                                    Recomandări pentru utilizarea eficientă a apei, energiei și nutrienților.
+                                </p>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <div class="text-center">
+                                        <div class="text-xl font-bold text-blue-600">-35%</div>
+                                        <div class="text-xs text-gray-600">Consum apă</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-xl font-bold text-green-600">-28%</div>
+                                        <div class="text-xs text-gray-600">Energie</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-xl font-bold text-purple-600">+42%</div>
+                                        <div class="text-xs text-gray-600">Eficiență</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Mockup -->
+                <div class="relative">
+                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                        <!-- Dashboard Header -->
+                        <div class="bg-gradient-to-r from-primary to-secondary p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-semibold">Dashboard Live</h3>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                    <span class="text-sm">Online</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dashboard Content -->
+                        <div id="dashboard-content" class="p-6">
+                            <!-- IoT Dashboard -->
+                            <div id="iot-dashboard" class="dashboard-view">
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div class="bg-primary-50 rounded-lg p-4">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <p class="text-sm text-gray-600">Temperatură</p>
+                                                <p class="text-2xl font-bold text-primary">24.5°C</p>
+                                            </div>
+                                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="bg-secondary-50 rounded-lg p-4">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <p class="text-sm text-gray-600">Umiditate</p>
+                                                <p class="text-2xl font-bold text-secondary">68%</p>
+                                            </div>
+                                            <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M10 2s-6 6-6 10a6 6 0 1012 0c0-4-6-10-6-10z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Real-time Chart -->
+                                <div class="bg-gray-50 rounded-lg p-4 h-32 flex items-center justify-center">
+                                    <svg class="w-full h-full" viewBox="0 0 300 100">
+                                        <polyline fill="none" stroke="#16A34A" stroke-width="2" points="0,80 50,60 100,70 150,40 200,50 250,30 300,35"/>
+                                        <circle cx="300" cy="35" r="3" fill="#16A34A"/>
+                                        <text x="10" y="95" class="text-xs fill-gray-500">00:00</text>
+                                        <text x="280" y="95" class="text-xs fill-gray-500">24:00</text>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Automation Dashboard -->
+                            <div id="automation-dashboard" class="dashboard-view hidden">
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between bg-success-50 rounded-lg p-4">
+                                        <div class="flex items-center">
+                                            <svg class="w-6 h-6 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M10 2s-6 6-6 10a6 6 0 1012 0c0-4-6-10-6-10z"/>
+                                            </svg>
+                                            <div>
+                                                <h4 class="font-semibold text-success">Irigație Zona A</h4>
+                                                <p class="text-sm text-gray-600">Activ - 15 min rămase</p>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-lg font-bold text-success">85L</div>
+                                            <div class="text-xs text-gray-500">Debit/min</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center justify-between bg-accent-50 rounded-lg p-4">
+                                        <div class="flex items-center">
+                                            <svg class="w-6 h-6 text-accent-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                            </svg>
+                                            <div>
+                                                <h4 class="font-semibold text-accent-600">Ventilație</h4>
+                                                <p class="text-sm text-gray-600">Auto - Viteză medie</p>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-lg font-bold text-accent-600">65%</div>
+                                            <div class="text-xs text-gray-500">Putere</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-gray-50 rounded-lg p-4">
+                                        <h4 class="font-semibold text-primary mb-3">Programări Următoare</h4>
+                                        <div class="space-y-2 text-sm">
+                                            <div class="flex justify-between">
+                                                <span>Irigație Zona B</span>
+                                                <span class="text-gray-500">18:30</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Iluminat LED</span>
+                                                <span class="text-gray-500">19:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Analytics Dashboard -->
+                            <div id="analytics-dashboard" class="dashboard-view hidden">
+                                <div class="space-y-4">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-success-50 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-success">2.3t</div>
+                                            <div class="text-sm text-gray-600">Predicție recoltă</div>
+                                        </div>
+                                        <div class="bg-primary-50 rounded-lg p-4 text-center">
+                                            <div class="text-2xl font-bold text-primary">94%</div>
+                                            <div class="text-sm text-gray-600">Precizie model</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-warning-50 rounded-lg p-4">
+                                        <h4 class="font-semibold text-warning-700 mb-2">Alertă Preventivă</h4>
+                                        <p class="text-sm text-gray-600">
+                                            Risc crescut de mană în Seră 3 datorită umidității ridicate. 
+                                            Recomandare: creșterea ventilației cu 20%.
+                                        </p>
+                                    </div>
+
+                                    <!-- Trend Chart -->
+                                    <div class="bg-gray-50 rounded-lg p-4 h-24">
+                                        <svg class="w-full h-full" viewBox="0 0 300 60">
+                                            <polyline fill="none" stroke="#10B981" stroke-width="2" points="0,50 60,45 120,40 180,35 240,30 300,25"/>
+                                            <polyline fill="none" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,5" points="0,45 60,42 120,38 180,33 240,28 300,23"/>
+                                            <text x="10" y="15" class="text-xs fill-success">Producție actuală</text>
+                                            <text x="10" y="30" class="text-xs fill-error">Predicție trend</text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Architecture -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Arhitectură Tehnică Avansată
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Infrastructură robustă și scalabilă pentru sere de toate dimensiunile
+                </p>
+            </div>
+
+            <!-- Architecture Diagram -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+                <div class="grid lg:grid-cols-3 gap-8 items-center">
+                    <!-- Sensors Layer -->
+                    <div class="text-center">
+                        <div class="bg-primary-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-primary mb-2">Senzori IoT</h3>
+                        <p class="text-sm text-gray-600 mb-4">
+                            Colectarea datelor în timp real din mediul serei
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-1">
+                            <li>• Temperatură & Umiditate</li>
+                            <li>• Lumină & UV</li>
+                            <li>• pH & Nutrienți</li>
+                            <li>• Umiditate sol</li>
+                        </ul>
+                    </div>
+
+                    <!-- Processing Layer -->
+                    <div class="text-center">
+                        <div class="bg-secondary-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-primary mb-2">Procesare Edge</h3>
+                        <p class="text-sm text-gray-600 mb-4">
+                            Raspberry Pi 4 cu algoritmi de învățare automată
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-1">
+                            <li>• Protocol MQTT</li>
+                            <li>• Procesare locală</li>
+                            <li>• Backup offline</li>
+                            <li>• Criptare AES-256</li>
+                        </ul>
+                    </div>
+
+                    <!-- Cloud Layer -->
+                    <div class="text-center">
+                        <div class="bg-accent-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-accent-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-primary mb-2">Cloud Analytics</h3>
+                        <p class="text-sm text-gray-600 mb-4">
+                            Analiză avansată și predicții AI în cloud
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-1">
+                            <li>• Machine Learning</li>
+                            <li>• Predicții recoltă</li>
+                            <li>• Optimizare resurse</li>
+                            <li>• Rapoarte avansate</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Data Flow Arrows -->
+                <div class="flex justify-center items-center mt-8 space-x-8">
+                    <svg class="w-8 h-4 text-primary" fill="currentColor" viewBox="0 0 20 10">
+                        <path d="M0 5h16m-4-4l4 4-4 4"/>
+                    </svg>
+                    <svg class="w-8 h-4 text-secondary" fill="currentColor" viewBox="0 0 20 10">
+                        <path d="M0 5h16m-4-4l4 4-4 4"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- API Documentation Preview -->
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-base p-6">
+                    <h3 class="text-xl font-semibold text-primary mb-4">API Integration</h3>
+                    <p class="text-gray-600 mb-4">
+                        RESTful API pentru integrarea cu sisteme existente și dezvoltarea de aplicații personalizate.
+                    </p>
+                    
+                    <!-- Code Example -->
+                    <div class="bg-gray-900 rounded-lg p-4 text-sm font-mono text-green-400 overflow-x-auto">
+                        <div class="text-gray-400 mb-2"># Python Example</div>
+                        <div class="text-blue-400">import</div> <span class="text-white">requests</span><br /><br />
+                        <div class="text-white">response = requests.get(</div><br />
+                        <div class="text-yellow-300 ml-4">'https://api.bytestorm.ro/v1/sensors',</div><br />
+                        <div class="text-white ml-4">headers={'Authorization': 'Bearer TOKEN'}</div><br />
+                        <div class="text-white">)</div><br /><br />
+                        <div class="text-white">data = response.json()</div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-base p-6">
+                    <h3 class="text-xl font-semibold text-primary mb-4">MQTT Protocol</h3>
+                    <p class="text-gray-600 mb-4">
+                        Comunicație în timp real între senzori și sistemul central prin protocol MQTT securizat.
+                    </p>
+                    
+                    <!-- MQTT Example -->
+                    <div class="bg-gray-900 rounded-lg p-4 text-sm font-mono text-green-400 overflow-x-auto">
+                        <div class="text-gray-400 mb-2"># JavaScript MQTT</div>
+                        <div class="text-blue-400">const</div> <span class="text-white">mqtt = require('mqtt')</span><br /><br />
+                        <div class="text-blue-400">const</div> <span class="text-white">client = mqtt.connect(</span><br />
+                        <div class="text-yellow-300 ml-4">'mqtts://mqtt.bytestorm.ro:8883'</div><br />
+                        <div class="text-white">)</div><br /><br />
+                        <div class="text-white">client.subscribe('sera/temperatura')</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    De ce să alegi ByteStorm Sere?
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Comparație cu soluțiile tradiționale și competitorii internaționali
+                </p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+                    <thead class="bg-gradient-to-r from-primary to-secondary text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left">Caracteristici</th>
+                            <th class="px-6 py-4 text-center">ByteStorm Sere</th>
+                            <th class="px-6 py-4 text-center">Soluții Tradiționale</th>
+                            <th class="px-6 py-4 text-center">Competitori Internaționali</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 font-medium text-gray-900">Interfață în română</td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-6 h-6 text-success mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-6 h-6 text-error mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-6 h-6 text-error mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/>
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 font-medium text-gray-900">Suport local 24/7</td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-6 h-6 text-success mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-warning">Limitat</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-warning">Limitat</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 font-medium text-gray-900">Algoritmi pentru clima românească</td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-6 h-6 text-success mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-6 h-6 text-error mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-warning">Parțial</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 font-medium text-gray-900">Preț accesibil</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-success font-semibold">€29/lună</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-error font-semibold">€150+/lună</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-error font-semibold">€200+/lună</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 font-medium text-gray-900">Instalare simplă</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-success font-semibold">2 ore</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-warning font-semibold">2-3 zile</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-error font-semibold">1-2 săptămâni</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-secondary">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+                Gata să transformi sera ta în ecosistem inteligent?
+            </h2>
+            <p class="text-xl text-primary-100 mb-8">
+                Începe cu o perioadă de probă gratuită de 14 zile și vezi diferența
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="login.html" class="bg-white text-primary font-semibold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-50 transition-colors">
+                    Începe perioada de probă gratuită
+                </a>
+                <a href="contact.html" class="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-primary transition-colors">
+                    Vorbește cu un expert
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-950 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-white" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L8 8v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V8l-8-6z"/>
+                            <circle cx="16" cy="14" r="3" fill="#0A3D31"/>
+                            <path d="M12 20h8v2h-8z" fill="#0A3D31"/>
+                        </svg>
+                        <div class="ml-3">
+                            <h3 class="text-xl font-bold">ByteStorm</h3>
+                            <p class="text-sm text-primary-200 -mt-1">Sere</p>
+                        </div>
+                    </div>
+                    <p class="text-primary-200 text-sm">
+                        Tehnologie care înțelege agricultura. Soluții IoT pentru fermieri români.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Navigare</h4>
+                    <ul class="space-y-2 text-sm text-primary-200">
+                        <li><a href="homepage.html" class="hover:text-white transition-colors">Acasă</a></li>
+                        <li><a href="features.html" class="hover:text-white transition-colors">Caracteristici</a></li>
+                        <li><a href="how_it_works.html" class="hover:text-white transition-colors">Cum funcționează</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition-colors">Prețuri</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-semibold mb-4">Suport</h4>
+                    <ul class="space-y-2 text-sm text-primary-200">
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Documentație</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Comunitate</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Status</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-primary-200">
+                        <li>📧 contact@bytestorm.ro</li>
+                        <li>📞 +40 21 123 4567</li>
+                        <li>📍 București, România</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 mt-12 pt-8 text-center text-sm text-primary-200">
+                <p>© 2025 ByteStorm Sere. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA for Mobile -->
+    <div class="fixed bottom-4 left-4 right-4 md:hidden z-40">
+        <a href="login.html" class="block w-full bg-primary text-white text-center font-semibold py-3 px-6 rounded-lg shadow-lg">
+            Începe perioada de probă
+        </a>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function switchFeature(feature) {
+            // Hide all content sections
+            document.querySelectorAll('.feature-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Hide all dashboard views
+            document.querySelectorAll('.dashboard-view').forEach(view => {
+                view.classList.add('hidden');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.feature-tab').forEach(tab => {
+                tab.classList.remove('active', 'bg-primary', 'text-white');
+                tab.classList.add('text-gray-600', 'hover:text-primary');
+            });
+            
+            // Show selected content and dashboard
+            document.getElementById(feature + '-content').classList.remove('hidden');
+            document.getElementById(feature + '-dashboard').classList.remove('hidden');
+            
+            // Add active class to selected tab
+            const activeTab = document.getElementById(feature + '-tab');
+            activeTab.classList.add('active', 'bg-primary', 'text-white');
+            activeTab.classList.remove('text-gray-600', 'hover:text-primary');
+        }
+
+        // Initialize with IoT tab active
+        document.addEventListener('DOMContentLoaded', function() {
+            switchFeature('iot');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.card, .animate-fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

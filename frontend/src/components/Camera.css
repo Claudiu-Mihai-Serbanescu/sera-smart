@@ -1,0 +1,214 @@
+/* ==============================
+   Camera — layout curat + COVER
+   ============================== */
+
+/* container exterior (în interiorul tile-ului) */
+.camera-wrapper {
+  position: relative;
+  width: auto;
+  height: 100%; /* permite “cover” pe înălțimea zonei alocate în grid */
+  min-height: 0; /* important pentru containere flex/scroll */
+  display: flex;
+  flex-direction: column;
+}
+
+/* card-ul camerei */
+.camera-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 100%; /* umple complet .camera-wrapper */
+  min-height: 0;
+  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+}
+
+/* zona video — ia TOT spațiul cardului */
+.video-container {
+  position: relative;
+  flex: 1 1 auto;
+  width: auto;
+  height: 100%; /* cheie pentru cover pe înălțime */
+  min-height: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+/* VIDEO / IFRAME — “cover” pe toată suprafața containerului */
+.camera-player,
+.camera-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 🎯 umple tot, taie surplusul ca un background */
+  display: block;
+  border: 0;
+  background: #000;
+}
+
+/* wrapper pentru iframe (opțional) */
+.iframe-wrapper {
+  position: relative;
+  width: auto;
+  height: 100%;
+}
+
+/* Overlays (sus / jos) */
+.overlay-top,
+.overlay-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  pointer-events: none; /* lasă video-ul clicabil; activezi pe butoane la nevoie */
+}
+
+.overlay-top {
+  top: 0;
+  padding: 8px 14px;
+  justify-content: space-between;
+  gap: 8px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent);
+}
+
+.overlay-bottom {
+  bottom: 0;
+  padding: 12px 0;
+  justify-content: center;
+  gap: 12px;
+  pointer-events: auto;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+}
+
+/* grupuri în overlay */
+.left-group,
+.right-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.left-group {
+  pointer-events: none;
+}
+.right-group {
+  pointer-events: auto;
+}
+
+/* iconițe / texte */
+.wireless-status img {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.camera-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+.camera-index {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+/* butoane overlay */
+.toggle-controls-btn,
+.control-btn {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  background: rgba(255, 255, 255, 0.9);
+  pointer-events: auto; /* activ pe butoane */
+}
+
+.toggle-controls-btn {
+  padding: 8px 12px;
+}
+.toggle-controls-btn i {
+  font-size: 1rem;
+  color: #333;
+}
+.toggle-controls-btn:hover {
+  transform: translateY(-2px);
+}
+
+.control-btn {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+.control-btn i {
+  font-size: 1.3rem;
+  color: #222;
+}
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Banner eroare */
+.connection-warning {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  background: #dc3545;
+  color: #fff;
+  text-align: center;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* ========= Responsive tweaks ========= */
+
+/* Pe mobil, păstrăm 16:9 ca înălțime implicită (poți elimina dacă vrei full-cover și aici) */
+@media (max-width: 768px) {
+  .camera-card {
+    flex: none;
+  }
+  .video-container {
+    aspect-ratio: 16 / 9;
+    height: auto;
+  } /* înălțime controlată */
+  .overlay-top {
+    padding: 6px 10px;
+  }
+  .overlay-bottom {
+    gap: 8px;
+    padding: 8px 0;
+  }
+}
+
+/* Pe zonele medii-mari, camera rămâne FULL HEIGHT în spațiul ei */
+@media (min-width: 769px) {
+  .video-container {
+    aspect-ratio: auto;
+    height: 100%;
+  } /* TRUE full-cover */
+}
+.camera-img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 8px;
+}

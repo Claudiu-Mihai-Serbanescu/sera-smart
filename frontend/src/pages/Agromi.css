@@ -1,0 +1,372 @@
+/* ===== PAGE / WRAP =====
+   aliniază cu dashboard-ul: padding stânga cât sidebar-ul,
+   padding X/Y din variabilele globale */
+.ag-wrap {
+  min-height: 100dvh;
+  background: #e8e8e8;
+  padding: var(--dash-pad-y) var(--dash-pad-x) var(--dash-pad-y) var(--sidebar-pad-left);
+  box-sizing: border-box;
+  overflow: hidden; /* ca pe desktop mare, grilele nu scrollează pagina */
+}
+
+/* layout ≥1600px rămâne cu overflow hidden în wrapper (ca dashboard) */
+@media (min-width: 1601px) {
+  .ag-wrap {
+    padding: var(--dash-pad-y) 20px var(--dash-pad-y) var(--sidebar-pad-left);
+  }
+}
+
+/*  ≤1599px — comportament ca la .dashboard: lăsăm scroll, micșorăm padding dreapta */
+@media (max-width: 1599.98px) {
+  .ag-wrap {
+    overflow: auto;
+    padding-left: var(--sidebar-pad-left);
+    padding-right: 16px;
+    padding-top: var(--dash-pad-y);
+    padding-bottom: var(--dash-pad-y);
+  }
+}
+
+/*  769–991px — aceleași valori ca în dashboard */
+@media (min-width: 769px) and (max-width: 991.98px) {
+  .ag-wrap {
+    padding-left: var(--sidebar-pad-left);
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 0;
+    overflow: auto;
+  }
+}
+
+/*  ≤768px — meniul trece sus/jos; păstrăm top=60px și bottom = înălțimea nav-ului jos */
+@media (max-width: 768px) {
+  .ag-wrap {
+    padding: 60px 10px var(--bottom-nav-h);
+    min-height: calc(100vh - 60px); /* același calcul ca dashboard-ul */
+    overflow: auto;
+  }
+}
+
+/* ===== HERO HEADER =====
+     (fără margin-left manual – offset-ul vine din .ag-wrap) */
+.ag-hero {
+  background: #fff;
+  border: 1px solid #e6e8ec;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: var(--dash-gap);
+}
+.ag-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.ag-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+.ag-hero-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.ag-hero-copy strong {
+  color: #1f2b3a;
+  font-weight: 800;
+}
+.ag-hero-sub {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+.ag-hero-cta {
+  background: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 10px 16px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.25);
+}
+.ag-hero-cta:hover {
+  filter: brightness(1.05);
+}
+
+@media (max-width: 640px) {
+  .ag-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* ===== SECTION HEADERS (stânga/dreapta) ===== */
+.ag-section {
+  margin-top: 10px;
+}
+.ag-section-head.ag-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 6px 0 14px;
+}
+.ag-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.ag-right {
+  display: flex;
+  align-items: center;
+}
+
+/* titluri + accent */
+.ag-h2 {
+  margin: 0;
+  color: #1f2b3a;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  position: relative;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+}
+.ag-h2--accent::after {
+  content: "";
+  display: block;
+  width: 76px;
+  height: 4px;
+  margin: 8px 0 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+}
+
+/* ===== FILTER PILLS ===== */
+.ag-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ag-pill {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid #e4e6ea;
+  background: #fff;
+  color: #4b5563;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: 0.2s;
+  text-transform: capitalize;
+}
+.ag-pill:hover {
+  background: #f7faf9;
+}
+.ag-pill.is-active {
+  background: #4caf50;
+  border-color: #4caf50;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.25);
+}
+
+/* ===== GRID ===== (gap sincronizat cu dashboard) */
+.ag-grid {
+  display: grid;
+  gap: var(--dash-gap);
+}
+.ag-six {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.ag-nine {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 700px) {
+  .ag-six {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .ag-nine {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1100px) {
+  .ag-six {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .ag-nine {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (min-width: 1500px) {
+  .ag-six {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .ag-nine {
+    grid-template-columns: repeat(9, 1fr);
+  }
+}
+
+/* ===== CARD ===== */
+.ag-card {
+  background: #fff;
+  border: 1px solid #e6e8ec;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+.ag-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  border-color: #dfe3ea;
+}
+.ag-imgwrap {
+  aspect-ratio: 4/3;
+  background: #f2f3f5;
+}
+.ag-imgwrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ag-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ag-title {
+  margin: 0;
+  color: #1f2b3a;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== PRICES / BUTTONS / STATES – neschimbate ===== */
+.ag-price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 1.4em;
+}
+.ag-price-new {
+  color: #b42318;
+  font-weight: 800;
+}
+.ag-price-old {
+  color: #6b7280;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #c1c7d0;
+  font-weight: 700;
+  transform: skewX(-8deg);
+}
+.ag-price-range,
+.ag-price-single {
+  color: #b42318;
+  font-weight: 800;
+}
+.ag-price-missing {
+  color: #6b7280;
+  font-weight: 600;
+}
+.ag-dash {
+  color: #6b7280;
+  font-weight: 700;
+  margin: 0 2px;
+}
+.ag-btn {
+  align-self: flex-start;
+  background: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.05s, filter 0.2s;
+}
+.ag-btn:hover {
+  filter: brightness(1.05);
+}
+.ag-btn:active {
+  transform: translateY(1px);
+}
+.ag-morebtn {
+  background: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.25);
+}
+.ag-morebtn--ghost {
+  background: #fff;
+  color: #2e7d32;
+  border: 2px solid #4caf50;
+  box-shadow: none;
+}
+.ag-morebtn--ghost:hover {
+  background: #f7faf9;
+}
+.ag-skel,
+.ag-err {
+  background: #fff;
+  border: 1px dashed #e6e8ec;
+  color: #6b7280;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+}
+.ag-err {
+  border-color: #f2b8b5;
+  color: #b42318;
+}
+
+/* ===== MOBILE TWEAKS ===== */
+@media (max-width: 640px) {
+  .ag-section-head.ag-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ag-pills {
+    gap: 8px;
+  }
+  .ag-pill {
+    padding: 8px 14px;
+    font-size: 0.92rem;
+  }
+  .ag-morebtn,
+  .ag-btn {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+}
+/* ===== PANELS (aceeași estetică ca headerul) ===== */
+.ag-panel {
+  background: #fff;
+  border: 1px solid #e6e8ec;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  padding: 14px 18px 18px;
+}
+
+.ag-panel .ag-section-head.ag-row {
+  margin: 0 0 14px; /* spațiu în interiorul cardului */
+}
+
+/* spațiere între cele două panouri */
+.ag-section + .ag-section {
+  margin-top: var(--dash-gap);
+}

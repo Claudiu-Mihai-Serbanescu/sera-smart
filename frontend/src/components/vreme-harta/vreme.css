@@ -1,0 +1,454 @@
+/* =========================
+   Weather – layout & tokens
+   ========================= */
+.weather-card {
+  --gap: 8px;
+  --chip-h: 38px;
+  --chip-px: 14px;
+  --chip-fs: 0.92rem;
+  --chip-radius: 999px;
+  --chip-border: #e8e8e8;
+  --chip-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  border-radius: 12px;
+  background: transparent;
+  height: 100%;
+}
+
+.weather-info {
+  padding: 0;
+}
+
+/* mobil: o singură coloană (sera → vreme → info) */
+.top-toolbar {
+  display: grid;
+  align-items: start;
+  gap: var(--gap);
+  grid-template-columns: 1fr;
+  grid-template-areas: "sera" "weather" "info";
+}
+.sera-chooser {
+  grid-area: sera;
+}
+.toolbar-right {
+  grid-area: weather;
+}
+.info-card {
+  grid-area: info;
+}
+
+/* =========================
+       Controale sus
+       ========================= */
+.sera-chooser {
+  width: max-content;
+}
+.sera-chooser .btn {
+  padding: 0 var(--chip-px);
+  margin-bottom: var(--gap);
+}
+.sera-chooser .btn:first-child {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.weather-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 5px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--chip-border);
+  box-shadow: var(--chip-shadow);
+  transition: transform 0.12s, box-shadow 0.18s, background 0.12s;
+  width: 170px;
+}
+.weather-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.weather-cta:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+.weather-cta__icon {
+  font-size: 20px;
+}
+.weather-cta i {
+  margin-left: auto;
+  font-size: 1.4rem;
+}
+
+.city-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.city-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* =========================
+       Info-card & chips (straturi)
+       ========================= */
+.info-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  padding: 12px 14px;
+}
+.meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  margin: 0;
+  padding: 0;
+}
+
+/* === CHIP UNIFICAT === */
+.metric-chip,
+.rp-stat,
+.rp-forecast__item {
+  background: #fff;
+  border: 1px solid var(--chip-border);
+  border-radius: var(--chip-radius);
+  box-shadow: var(--chip-shadow);
+  height: var(--chip-h);
+  padding: 0 var(--chip-px);
+  font-size: var(--chip-fs);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.metric-chip {
+  justify-content: flex-start;
+}
+.metric-title {
+  color: #666;
+}
+.metric-value b {
+  font-weight: 800;
+}
+
+/* layout straturi (desktop) */
+.straturi-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+.strat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.strat-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #374151;
+}
+.chip-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+
+/* =========================
+       Panou meteo (desktop)
+       ========================= */
+.right-panel {
+  display: none;
+}
+.toolbar-right--mobile {
+  display: flex;
+}
+
+@media (min-width: 850px) {
+  .weather-card {
+    --gap: 8px;
+    --chip-px: 5px;
+    --chip-fs: 0.9rem;
+  }
+  .top-toolbar {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "left right";
+    column-gap: 5px;
+    row-gap: 5px;
+    align-items: stretch;
+  }
+  .toolbar-left {
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .toolbar-right--mobile {
+    display: none;
+  }
+
+  .right-panel {
+    display: block;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    padding: 10px;
+  }
+  .rp-header {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .rp-title {
+    font-weight: 800;
+    padding: 10px 0;
+  }
+
+  .rp-body {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .rp-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .rp-cta {
+    align-self: flex-start;
+  }
+
+  .rp-forecast {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+  .rp-forecast__item {
+    justify-content: space-between;
+  }
+  .rp-forecast__day {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .rp-forecast__icon {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .rp-forecast__temps b {
+    margin-right: 6px;
+    font-weight: 800;
+  }
+  .rp-forecast__temps .muted {
+    color: #6b7280;
+  }
+
+  .rp-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+  .rp-stat {
+    justify-content: space-between;
+  }
+  .rp-stat b {
+    font-weight: 800;
+    margin-left: 10px;
+  }
+
+  .left-panel {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .left-panel {
+    grid-area: left;
+  }
+  .right-panel {
+    grid-area: right;
+  }
+  .strat-panel {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    flex: 1 1 auto;
+  }
+}
+
+/* =========================
+       Harta serelor
+       ========================= */
+.weather-map {
+  margin-top: var(--gap);
+  display: flex;
+  min-height: 0;
+  padding: 0;
+}
+.map-shell {
+  flex: 1 1 auto;
+  width: auto;
+}
+.map-canvas {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 12px;
+}
+.map-overlay-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.map-canvas {
+  position: relative;
+}
+
+.map-overlay-grid {
+  z-index: 0; /* grila SUB bare */
+}
+
+.gh-list {
+  position: relative;
+  z-index: 1; /* barele DEASUPRA grilei */
+}
+
+.gh-item.is-active {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px; /* ca să se vadă mai clar */
+}
+.gh-list {
+  position: relative;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gh-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.12s, box-shadow 0.18s, filter 0.18s;
+
+  /* NOU: culoare solidă, nu gradient.
+       SereMap setează --gh-color cu prima culoare a paletei. */
+  background-image: none !important;
+  background-color: var(--gh-color, #9ca3af) !important;
+}
+.gh-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  filter: saturate(1.05);
+}
+.gh-item.is-active {
+  outline: 2px solid #0d6efd;
+  /* opțional: outline-offset: 2px; */
+}
+.gh-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  margin-right: 8px;
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25) inset;
+}
+.gh-name {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.gh-meta {
+  font-size: 0.8rem;
+  opacity: 1;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  margin-left: auto;
+  padding-left: 10px;
+}
+
+/* =========================
+       Breakpoints
+       ========================= */
+.only-mobile {
+  display: block;
+}
+.only-desktop {
+  display: none;
+}
+@media (min-width: 768px) {
+  .only-mobile {
+    display: none;
+  }
+  .only-desktop {
+    display: block;
+  }
+  .weather-cta__label {
+    font-weight: bold;
+  }
+  .weather-cta {
+    height: var(--chip-h);
+  }
+}
+@media (max-width: 767.98px) {
+  .weather-card {
+    height: auto;
+  }
+  .weather-map {
+    display: none !important;
+  }
+  .left-panel {
+    display: contents;
+  }
+  .sera-chooser {
+    margin-bottom: -8px;
+  }
+}
+.map-canvas {
+  position: relative;
+}
+.map-overlay-grid {
+  z-index: 0;
+}
+.gh-list {
+  position: relative;
+  z-index: 1;
+}
+
+/* contur clar, indiferent de reseturi */
+.gh-item.is-active {
+  box-shadow: 0 0 0 1px #0d6efd, 0 6px 6px rgba(0, 0, 0, 0.2) !important;
+}
