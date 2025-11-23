@@ -2,6 +2,20 @@
 **Full Stack Project:** React + Node.js + MQTT + Raspberry Pi + MySQL
 
 ---
+## 🔗 Live Demo
+
+Proiectul este disponibil live, găzduit pe infrastructura mea proprie:
+
+👉 **https://serty.ro**
+
+Acesta rulează pe un server pe care îl administrez personal, incluzând:
+- configurare Nginx / Apache
+- build & deploy pentru frontend (Vite)
+- backend Node.js cu procese persistente
+- securizare domeniu (HTTPS + certificare)
+- management complet al serverului
+
+---
 
 ## 📌 Descriere generală
 
