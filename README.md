@@ -31,14 +31,33 @@ Platforma demonstrează competențe solide în:
 ## 🧱 Arhitectura proiectului
 
 sera-smart/
-│── backend/ → Node.js + Express + MQTT + MySQL API
-│── frontend/ → React + Vite responsive dashboard
+│── backend/ 
+→ Node.js + Express + MQTT + MySQL API
+│── frontend/ 
+→ React + Vite responsive dashboard
 └── README.md → Documentația principală
 
-yaml
-Copy code
-
 ---
+
+👤 Rol personal în proiect (Full Stack & IoT Developer)
+Am contribuit majoritar sau integral la:
+
+arhitectura completă a aplicației
+
+design UI/UX și implementarea completă a frontend-ului
+
+dezvoltarea backend-ului (API REST + MQTT)
+
+integrarea cu hardware-ul Raspberry Pi / Pico
+
+testare, debugging, structurare, documentație
+
+coordonarea echipei și definirea fluxurilor de lucru
+
+stabilirea logicii generale și a componentelor aplicației
+
+Acest proiect reprezintă o demonstrație practică a abilităților mele ca full stack developer și IoT engineer.
+
 
 ## 🔹 Componentele proiectului
 
@@ -181,22 +200,5 @@ npm run dev
 arduino
 Copy code
 http://localhost:5173
-👤 Rol personal în proiect (Full Stack & IoT Developer)
-Am contribuit majoritar sau integral la:
 
-arhitectura completă a aplicației
-
-design UI/UX și implementarea completă a frontend-ului
-
-dezvoltarea backend-ului (API REST + MQTT)
-
-integrarea cu hardware-ul Raspberry Pi / Pico
-
-testare, debugging, structurare, documentație
-
-coordonarea echipei și definirea fluxurilor de lucru
-
-stabilirea logicii generale și a componentelor aplicației
-
-Acest proiect reprezintă o demonstrație practică a abilităților mele ca full stack developer și IoT engineer.
 
