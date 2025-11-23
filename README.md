@@ -159,16 +159,52 @@ Infrastructura este complet funcțională și testată în scenarii reale.
 - Multiple sensors & actuators  
 
 ---
+## 🖼️ Screenshots
 
-## 🖼️ Screenshots (opțional)
-
-Pot fi adăugate capturi din:
-- Dashboard  
-- Pagina de statistici  
-- Pagina de control  
-- Video stream live  
+Mai jos sunt câteva capturi reale din aplicația Smart Greenhouse, demonstrând funcționalitatea dashboard-ului, statisticilor, controlului actuatorilor, integrării Agromi și versiunea mobilă.
 
 ---
+
+### 🌍 Dashboard principal (desktop)
+
+![Dashboard Desktop](./screenshots/dashboard-desktop.png)
+
+Dashboard-ul principal oferă o vedere de ansamblu asupra stării serei: sănătatea plantelor, nivelul apei, temperatura aerului, umiditatea solului, automatizări active, sarcini realizate și notificări.
+
+---
+
+### 📊 Pagina de Statistici (senzori în timp real)
+
+![Statistici Desktop](./screenshots/statistici-desktop.png)
+
+Grafică avansată cu analize pe intervale (24h, 7 zile, 30 zile), comparare senzori, detectare comportamente anormale și tendințe în timp.
+
+---
+
+### ⚙️ Control Actuatori (LED, Ventilator, Servo, Pompă)
+
+![Control Actuatori](./screenshots/control-actuatori.png)
+
+Permite controlul direct al sistemelor din seră: ventilatoare, iluminat, servo-motoare, pompa de apă. Comenzile sunt trimise în timp real prin backend → MQTT → Raspberry Pi.
+
+---
+
+### 🛒 Integrare Agromi – Recomandări și produse agricole
+
+![Integrare Agromi](./screenshots/agromi-integrare.png)
+
+Integrare completă cu Agromi, afișând recomandări dinamice pentru: îngrășăminte, pesticide, tăvi & ghivece, sisteme de irigat și alte produse utile în agricultură.
+
+---
+
+### 📱 Dashboard – versiune mobilă
+
+![Dashboard Mobile](./screenshots/dashboard-mobile.png)
+
+Interfața este optimizată complet pentru mobil, păstrând accesul la toate funcțiile: live camera, senzori, notificări, prognoză meteo, automatizări și control.
+
+---
+
 
 ## 🚀 Capabilitățile principale ale platformei
 
